@@ -1,0 +1,807 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8"><title>gen_quiz_modules.py</title><style>body{margin:0;background:#0C447C;font-family:-apple-system,Segoe UI,sans-serif}.wrap{max-width:1100px;margin:0 auto;padding:24px}header{color:#fff;padding:16px 4px 20px}header h1{margin:0 0 6px;font-size:20px}header p{margin:0;color:#E8EEF5;font-size:13px}.card{background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 6px 24px rgba(0,0,0,.25)}.bar{background:#F18F01;height:5px}.hl{font-size:12.5px;overflow-x:auto}.hl table{border-collapse:collapse;width:100%}.hl .linenos{color:#aaa;padding:0 12px;text-align:right;border-right:1px solid #eee}.hl td{vertical-align:top}.hl pre{margin:0;padding:14px 16px;line-height:1.5;font-family:Consolas,Menlo,monospace}pre { line-height: 125%; }
+td.linenos .normal { color: #666666; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: #666666; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.hl .hll { background-color: #ffffcc }
+.hl { background: #f0f0f0; }
+.hl .c { color: #60A0B0; font-style: italic } /* Comment */
+.hl .err { border: 1px solid #F00 } /* Error */
+.hl .k { color: #007020; font-weight: bold } /* Keyword */
+.hl .o { color: #666 } /* Operator */
+.hl .ch { color: #60A0B0; font-style: italic } /* Comment.Hashbang */
+.hl .cm { color: #60A0B0; font-style: italic } /* Comment.Multiline */
+.hl .cp { color: #007020 } /* Comment.Preproc */
+.hl .cpf { color: #60A0B0; font-style: italic } /* Comment.PreprocFile */
+.hl .c1 { color: #60A0B0; font-style: italic } /* Comment.Single */
+.hl .cs { color: #60A0B0; background-color: #FFF0F0 } /* Comment.Special */
+.hl .gd { color: #A00000 } /* Generic.Deleted */
+.hl .ge { font-style: italic } /* Generic.Emph */
+.hl .ges { font-weight: bold; font-style: italic } /* Generic.EmphStrong */
+.hl .gr { color: #F00 } /* Generic.Error */
+.hl .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.hl .gi { color: #00A000 } /* Generic.Inserted */
+.hl .go { color: #888 } /* Generic.Output */
+.hl .gp { color: #C65D09; font-weight: bold } /* Generic.Prompt */
+.hl .gs { font-weight: bold } /* Generic.Strong */
+.hl .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.hl .gt { color: #04D } /* Generic.Traceback */
+.hl .kc { color: #007020; font-weight: bold } /* Keyword.Constant */
+.hl .kd { color: #007020; font-weight: bold } /* Keyword.Declaration */
+.hl .kn { color: #007020; font-weight: bold } /* Keyword.Namespace */
+.hl .kp { color: #007020 } /* Keyword.Pseudo */
+.hl .kr { color: #007020; font-weight: bold } /* Keyword.Reserved */
+.hl .kt { color: #902000 } /* Keyword.Type */
+.hl .m { color: #40A070 } /* Literal.Number */
+.hl .s { color: #4070A0 } /* Literal.String */
+.hl .na { color: #4070A0 } /* Name.Attribute */
+.hl .nb { color: #007020 } /* Name.Builtin */
+.hl .nc { color: #0E84B5; font-weight: bold } /* Name.Class */
+.hl .no { color: #60ADD5 } /* Name.Constant */
+.hl .nd { color: #555; font-weight: bold } /* Name.Decorator */
+.hl .ni { color: #D55537; font-weight: bold } /* Name.Entity */
+.hl .ne { color: #007020 } /* Name.Exception */
+.hl .nf { color: #06287E } /* Name.Function */
+.hl .nl { color: #002070; font-weight: bold } /* Name.Label */
+.hl .nn { color: #0E84B5; font-weight: bold } /* Name.Namespace */
+.hl .nt { color: #062873; font-weight: bold } /* Name.Tag */
+.hl .nv { color: #BB60D5 } /* Name.Variable */
+.hl .ow { color: #007020; font-weight: bold } /* Operator.Word */
+.hl .w { color: #BBB } /* Text.Whitespace */
+.hl .mb { color: #40A070 } /* Literal.Number.Bin */
+.hl .mf { color: #40A070 } /* Literal.Number.Float */
+.hl .mh { color: #40A070 } /* Literal.Number.Hex */
+.hl .mi { color: #40A070 } /* Literal.Number.Integer */
+.hl .mo { color: #40A070 } /* Literal.Number.Oct */
+.hl .sa { color: #4070A0 } /* Literal.String.Affix */
+.hl .sb { color: #4070A0 } /* Literal.String.Backtick */
+.hl .sc { color: #4070A0 } /* Literal.String.Char */
+.hl .dl { color: #4070A0 } /* Literal.String.Delimiter */
+.hl .sd { color: #4070A0; font-style: italic } /* Literal.String.Doc */
+.hl .s2 { color: #4070A0 } /* Literal.String.Double */
+.hl .se { color: #4070A0; font-weight: bold } /* Literal.String.Escape */
+.hl .sh { color: #4070A0 } /* Literal.String.Heredoc */
+.hl .si { color: #70A0D0; font-style: italic } /* Literal.String.Interpol */
+.hl .sx { color: #C65D09 } /* Literal.String.Other */
+.hl .sr { color: #235388 } /* Literal.String.Regex */
+.hl .s1 { color: #4070A0 } /* Literal.String.Single */
+.hl .ss { color: #517918 } /* Literal.String.Symbol */
+.hl .bp { color: #007020 } /* Name.Builtin.Pseudo */
+.hl .fm { color: #06287E } /* Name.Function.Magic */
+.hl .vc { color: #BB60D5 } /* Name.Variable.Class */
+.hl .vg { color: #BB60D5 } /* Name.Variable.Global */
+.hl .vi { color: #BB60D5 } /* Name.Variable.Instance */
+.hl .vm { color: #BB60D5 } /* Name.Variable.Magic */
+.hl .il { color: #40A070 } /* Literal.Number.Integer.Long */</style></head><body><div class="wrap"><header><h1>gen_quiz_modules.py</h1><p>Generateur des 8 quiz — CSV enrichi (detail par question), collecte multi-postes</p></header><div class="card"><div class="bar"></div><div class="hl"><table class="hltable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">  1</span>
+<span class="normal">  2</span>
+<span class="normal">  3</span>
+<span class="normal">  4</span>
+<span class="normal">  5</span>
+<span class="normal">  6</span>
+<span class="normal">  7</span>
+<span class="normal">  8</span>
+<span class="normal">  9</span>
+<span class="normal"> 10</span>
+<span class="normal"> 11</span>
+<span class="normal"> 12</span>
+<span class="normal"> 13</span>
+<span class="normal"> 14</span>
+<span class="normal"> 15</span>
+<span class="normal"> 16</span>
+<span class="normal"> 17</span>
+<span class="normal"> 18</span>
+<span class="normal"> 19</span>
+<span class="normal"> 20</span>
+<span class="normal"> 21</span>
+<span class="normal"> 22</span>
+<span class="normal"> 23</span>
+<span class="normal"> 24</span>
+<span class="normal"> 25</span>
+<span class="normal"> 26</span>
+<span class="normal"> 27</span>
+<span class="normal"> 28</span>
+<span class="normal"> 29</span>
+<span class="normal"> 30</span>
+<span class="normal"> 31</span>
+<span class="normal"> 32</span>
+<span class="normal"> 33</span>
+<span class="normal"> 34</span>
+<span class="normal"> 35</span>
+<span class="normal"> 36</span>
+<span class="normal"> 37</span>
+<span class="normal"> 38</span>
+<span class="normal"> 39</span>
+<span class="normal"> 40</span>
+<span class="normal"> 41</span>
+<span class="normal"> 42</span>
+<span class="normal"> 43</span>
+<span class="normal"> 44</span>
+<span class="normal"> 45</span>
+<span class="normal"> 46</span>
+<span class="normal"> 47</span>
+<span class="normal"> 48</span>
+<span class="normal"> 49</span>
+<span class="normal"> 50</span>
+<span class="normal"> 51</span>
+<span class="normal"> 52</span>
+<span class="normal"> 53</span>
+<span class="normal"> 54</span>
+<span class="normal"> 55</span>
+<span class="normal"> 56</span>
+<span class="normal"> 57</span>
+<span class="normal"> 58</span>
+<span class="normal"> 59</span>
+<span class="normal"> 60</span>
+<span class="normal"> 61</span>
+<span class="normal"> 62</span>
+<span class="normal"> 63</span>
+<span class="normal"> 64</span>
+<span class="normal"> 65</span>
+<span class="normal"> 66</span>
+<span class="normal"> 67</span>
+<span class="normal"> 68</span>
+<span class="normal"> 69</span>
+<span class="normal"> 70</span>
+<span class="normal"> 71</span>
+<span class="normal"> 72</span>
+<span class="normal"> 73</span>
+<span class="normal"> 74</span>
+<span class="normal"> 75</span>
+<span class="normal"> 76</span>
+<span class="normal"> 77</span>
+<span class="normal"> 78</span>
+<span class="normal"> 79</span>
+<span class="normal"> 80</span>
+<span class="normal"> 81</span>
+<span class="normal"> 82</span>
+<span class="normal"> 83</span>
+<span class="normal"> 84</span>
+<span class="normal"> 85</span>
+<span class="normal"> 86</span>
+<span class="normal"> 87</span>
+<span class="normal"> 88</span>
+<span class="normal"> 89</span>
+<span class="normal"> 90</span>
+<span class="normal"> 91</span>
+<span class="normal"> 92</span>
+<span class="normal"> 93</span>
+<span class="normal"> 94</span>
+<span class="normal"> 95</span>
+<span class="normal"> 96</span>
+<span class="normal"> 97</span>
+<span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span>
+<span class="normal">102</span>
+<span class="normal">103</span>
+<span class="normal">104</span>
+<span class="normal">105</span>
+<span class="normal">106</span>
+<span class="normal">107</span>
+<span class="normal">108</span>
+<span class="normal">109</span>
+<span class="normal">110</span>
+<span class="normal">111</span>
+<span class="normal">112</span>
+<span class="normal">113</span>
+<span class="normal">114</span>
+<span class="normal">115</span>
+<span class="normal">116</span>
+<span class="normal">117</span>
+<span class="normal">118</span>
+<span class="normal">119</span>
+<span class="normal">120</span>
+<span class="normal">121</span>
+<span class="normal">122</span>
+<span class="normal">123</span>
+<span class="normal">124</span>
+<span class="normal">125</span>
+<span class="normal">126</span>
+<span class="normal">127</span>
+<span class="normal">128</span>
+<span class="normal">129</span>
+<span class="normal">130</span>
+<span class="normal">131</span>
+<span class="normal">132</span>
+<span class="normal">133</span>
+<span class="normal">134</span>
+<span class="normal">135</span>
+<span class="normal">136</span>
+<span class="normal">137</span>
+<span class="normal">138</span>
+<span class="normal">139</span>
+<span class="normal">140</span>
+<span class="normal">141</span>
+<span class="normal">142</span>
+<span class="normal">143</span>
+<span class="normal">144</span>
+<span class="normal">145</span>
+<span class="normal">146</span>
+<span class="normal">147</span>
+<span class="normal">148</span>
+<span class="normal">149</span>
+<span class="normal">150</span>
+<span class="normal">151</span>
+<span class="normal">152</span>
+<span class="normal">153</span>
+<span class="normal">154</span>
+<span class="normal">155</span>
+<span class="normal">156</span>
+<span class="normal">157</span>
+<span class="normal">158</span>
+<span class="normal">159</span>
+<span class="normal">160</span>
+<span class="normal">161</span>
+<span class="normal">162</span>
+<span class="normal">163</span>
+<span class="normal">164</span>
+<span class="normal">165</span>
+<span class="normal">166</span>
+<span class="normal">167</span>
+<span class="normal">168</span>
+<span class="normal">169</span>
+<span class="normal">170</span>
+<span class="normal">171</span>
+<span class="normal">172</span>
+<span class="normal">173</span>
+<span class="normal">174</span>
+<span class="normal">175</span>
+<span class="normal">176</span>
+<span class="normal">177</span>
+<span class="normal">178</span>
+<span class="normal">179</span>
+<span class="normal">180</span>
+<span class="normal">181</span>
+<span class="normal">182</span>
+<span class="normal">183</span>
+<span class="normal">184</span>
+<span class="normal">185</span>
+<span class="normal">186</span>
+<span class="normal">187</span>
+<span class="normal">188</span>
+<span class="normal">189</span>
+<span class="normal">190</span>
+<span class="normal">191</span>
+<span class="normal">192</span>
+<span class="normal">193</span>
+<span class="normal">194</span>
+<span class="normal">195</span>
+<span class="normal">196</span>
+<span class="normal">197</span>
+<span class="normal">198</span>
+<span class="normal">199</span>
+<span class="normal">200</span>
+<span class="normal">201</span>
+<span class="normal">202</span>
+<span class="normal">203</span>
+<span class="normal">204</span>
+<span class="normal">205</span>
+<span class="normal">206</span>
+<span class="normal">207</span>
+<span class="normal">208</span>
+<span class="normal">209</span>
+<span class="normal">210</span>
+<span class="normal">211</span>
+<span class="normal">212</span>
+<span class="normal">213</span>
+<span class="normal">214</span>
+<span class="normal">215</span>
+<span class="normal">216</span>
+<span class="normal">217</span>
+<span class="normal">218</span>
+<span class="normal">219</span>
+<span class="normal">220</span>
+<span class="normal">221</span>
+<span class="normal">222</span>
+<span class="normal">223</span>
+<span class="normal">224</span>
+<span class="normal">225</span>
+<span class="normal">226</span>
+<span class="normal">227</span>
+<span class="normal">228</span>
+<span class="normal">229</span>
+<span class="normal">230</span>
+<span class="normal">231</span>
+<span class="normal">232</span>
+<span class="normal">233</span>
+<span class="normal">234</span>
+<span class="normal">235</span>
+<span class="normal">236</span>
+<span class="normal">237</span>
+<span class="normal">238</span>
+<span class="normal">239</span>
+<span class="normal">240</span>
+<span class="normal">241</span>
+<span class="normal">242</span>
+<span class="normal">243</span>
+<span class="normal">244</span>
+<span class="normal">245</span>
+<span class="normal">246</span>
+<span class="normal">247</span>
+<span class="normal">248</span>
+<span class="normal">249</span>
+<span class="normal">250</span>
+<span class="normal">251</span>
+<span class="normal">252</span>
+<span class="normal">253</span>
+<span class="normal">254</span>
+<span class="normal">255</span>
+<span class="normal">256</span>
+<span class="normal">257</span>
+<span class="normal">258</span>
+<span class="normal">259</span>
+<span class="normal">260</span>
+<span class="normal">261</span>
+<span class="normal">262</span>
+<span class="normal">263</span>
+<span class="normal">264</span>
+<span class="normal">265</span>
+<span class="normal">266</span>
+<span class="normal">267</span>
+<span class="normal">268</span>
+<span class="normal">269</span>
+<span class="normal">270</span>
+<span class="normal">271</span>
+<span class="normal">272</span>
+<span class="normal">273</span>
+<span class="normal">274</span>
+<span class="normal">275</span>
+<span class="normal">276</span>
+<span class="normal">277</span>
+<span class="normal">278</span>
+<span class="normal">279</span>
+<span class="normal">280</span>
+<span class="normal">281</span>
+<span class="normal">282</span>
+<span class="normal">283</span>
+<span class="normal">284</span>
+<span class="normal">285</span>
+<span class="normal">286</span>
+<span class="normal">287</span>
+<span class="normal">288</span>
+<span class="normal">289</span>
+<span class="normal">290</span>
+<span class="normal">291</span>
+<span class="normal">292</span>
+<span class="normal">293</span>
+<span class="normal">294</span>
+<span class="normal">295</span>
+<span class="normal">296</span>
+<span class="normal">297</span>
+<span class="normal">298</span>
+<span class="normal">299</span>
+<span class="normal">300</span>
+<span class="normal">301</span>
+<span class="normal">302</span>
+<span class="normal">303</span>
+<span class="normal">304</span>
+<span class="normal">305</span>
+<span class="normal">306</span>
+<span class="normal">307</span>
+<span class="normal">308</span>
+<span class="normal">309</span>
+<span class="normal">310</span>
+<span class="normal">311</span>
+<span class="normal">312</span>
+<span class="normal">313</span>
+<span class="normal">314</span>
+<span class="normal">315</span>
+<span class="normal">316</span>
+<span class="normal">317</span>
+<span class="normal">318</span>
+<span class="normal">319</span>
+<span class="normal">320</span>
+<span class="normal">321</span>
+<span class="normal">322</span>
+<span class="normal">323</span>
+<span class="normal">324</span>
+<span class="normal">325</span>
+<span class="normal">326</span>
+<span class="normal">327</span>
+<span class="normal">328</span>
+<span class="normal">329</span>
+<span class="normal">330</span>
+<span class="normal">331</span>
+<span class="normal">332</span>
+<span class="normal">333</span>
+<span class="normal">334</span>
+<span class="normal">335</span>
+<span class="normal">336</span>
+<span class="normal">337</span>
+<span class="normal">338</span>
+<span class="normal">339</span>
+<span class="normal">340</span>
+<span class="normal">341</span>
+<span class="normal">342</span>
+<span class="normal">343</span>
+<span class="normal">344</span>
+<span class="normal">345</span>
+<span class="normal">346</span>
+<span class="normal">347</span>
+<span class="normal">348</span>
+<span class="normal">349</span>
+<span class="normal">350</span>
+<span class="normal">351</span>
+<span class="normal">352</span>
+<span class="normal">353</span>
+<span class="normal">354</span>
+<span class="normal">355</span>
+<span class="normal">356</span>
+<span class="normal">357</span>
+<span class="normal">358</span>
+<span class="normal">359</span>
+<span class="normal">360</span>
+<span class="normal">361</span>
+<span class="normal">362</span>
+<span class="normal">363</span>
+<span class="normal">364</span>
+<span class="normal">365</span>
+<span class="normal">366</span></pre></div></td><td class="code"><div><pre><span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Génère 8 quiz HTML autonomes (un par module) à partir de quiz_modules_data.py.</span>
+<span class="sd">Chaque quiz : saisie du nom du stagiaire + espace formateur (code &#39;atigroupe&#39;),</span>
+<span class="sd">correction automatique, note finale, bandeau ATIGROUPE + CNFPT.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span><span class="o">,</span><span class="w"> </span><span class="nn">base64</span><span class="o">,</span><span class="w"> </span><span class="nn">sys</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;/home/claude&#39;</span><span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">quiz_modules_data</span><span class="w"> </span><span class="kn">import</span> <span class="n">MODULES</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_b64</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
+<span class="n">HEAD_B64</span> <span class="o">=</span> <span class="n">_b64</span><span class="p">(</span><span class="s1">&#39;/home/claude/charte_media/header_combined.png&#39;</span><span class="p">)</span>
+
+<span class="n">TEMPLATE</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;&quot;&quot;&lt;!DOCTYPE html&gt;</span>
+<span class="s2">&lt;html lang=&quot;fr&quot;&gt;</span>
+<span class="s2">&lt;head&gt;</span>
+<span class="s2">&lt;meta charset=&quot;utf-8&quot;&gt;</span>
+<span class="s2">&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;</span>
+<span class="s2">&lt;title&gt;Quiz — __MODTITRE__&lt;/title&gt;</span>
+<span class="s2">&lt;style&gt;</span>
+<span class="s2">  :root{</span>
+<span class="s2">    --bleu:#0C447C;--petrole:#275C6B;--orange:#F18F01;--clair:#E8EEF5;</span>
+<span class="s2">    --blanc:#fff;--texte:#27303A;--gris:#6B7785;--vert:#1B7A2F;--vert-bg:#E7F4EA;</span>
+<span class="s2">    --rouge:#B3261E;--rouge-bg:#FBEAE9;--ombre:0 18px 50px rgba(15,40,60,.22);</span>
+<span class="s2">  }</span>
+<span class="s2">  *{box-sizing:border-box;margin:0;padding:0}</span>
+<span class="s2">  body{font-family:&quot;Segoe UI&quot;,-apple-system,BlinkMacSystemFont,Roboto,sans-serif;</span>
+<span class="s2">    color:var(--texte);min-height:100vh;</span>
+<span class="s2">    background:linear-gradient(150deg,#1d4f60 0%,#0C447C 60%,#0a2f57 100%);</span>
+<span class="s2">    display:flex;align-items:center;justify-content:center;padding:24px;</span>
+<span class="s2">    -webkit-font-smoothing:antialiased}</span>
+<span class="s2">  .app{width:100%;max-width:820px}</span>
+<span class="s2">  .card{background:var(--blanc);border-radius:18px;box-shadow:var(--ombre);overflow:hidden}</span>
+<span class="s2">  .bandhead{position:relative;height:74px;</span>
+<span class="s2">    background:#fff url(&#39;data:image/png;base64,__HEAD__&#39;) no-repeat right center;</span>
+<span class="s2">    background-size:auto 74px;border-bottom:3px solid var(--orange)}</span>
+<span class="s2">  .pad{padding:34px 44px}</span>
+<span class="s2">  .brand{font-size:12px;letter-spacing:3px;font-weight:700;color:var(--bleu);</span>
+<span class="s2">    text-transform:uppercase;margin-bottom:6px}</span>
+<span class="s2">  h1{font-size:27px;line-height:1.2;color:var(--bleu);margin-bottom:14px;font-weight:800}</span>
+<span class="s2">  .lead{color:var(--gris);font-size:15px;line-height:1.6;margin-bottom:24px}</span>
+<span class="s2">  label.fld{display:block;font-weight:700;color:var(--bleu);font-size:14px;margin:0 0 8px}</span>
+<span class="s2">  input.txt{width:100%;font-size:17px;padding:14px 16px;border:2px solid #D2DBE3;</span>
+<span class="s2">    border-radius:11px;font-family:inherit;color:var(--texte);outline:none}</span>
+<span class="s2">  input.txt:focus{border-color:var(--bleu);background:#F5F9FD}</span>
+<span class="s2">  .meta{display:flex;gap:12px;flex-wrap:wrap;margin:22px 0 28px}</span>
+<span class="s2">  .chip{background:var(--clair);color:var(--bleu);font-weight:700;font-size:13px;</span>
+<span class="s2">    padding:9px 16px;border-radius:999px}</span>
+<span class="s2">  .btn{background:var(--bleu);color:#fff;border:none;font-size:16px;font-weight:700;</span>
+<span class="s2">    padding:15px 30px;border-radius:11px;cursor:pointer;transition:.15s;font-family:inherit}</span>
+<span class="s2">  .btn:hover{background:#0a3a6a;transform:translateY(-1px)}</span>
+<span class="s2">  .btn:disabled{background:#B9C4CF;cursor:not-allowed;transform:none}</span>
+<span class="s2">  .btn.ghost{background:transparent;color:var(--bleu);border:2px solid var(--bleu)}</span>
+<span class="s2">  .btn.ghost:hover{background:var(--clair)}</span>
+<span class="s2">  .btn.orange{background:var(--orange)}.btn.orange:hover{background:#d97e00}</span>
+<span class="s2">  .btn.sm{font-size:14px;padding:11px 20px}</span>
+<span class="s2">  .row{display:flex;gap:12px;flex-wrap:wrap}</span>
+<span class="s2">  .prog{height:8px;background:var(--clair);border-radius:99px;overflow:hidden;margin-bottom:8px}</span>
+<span class="s2">  .prog&gt;i{display:block;height:100%;background:var(--orange);width:0;transition:width .35s}</span>
+<span class="s2">  .pinfo{display:flex;justify-content:space-between;font-size:13px;color:var(--gris);</span>
+<span class="s2">    font-weight:600;margin-bottom:8px}</span>
+<span class="s2">  .who{font-size:13px;color:var(--gris);margin-bottom:22px}</span>
+<span class="s2">  .who b{color:var(--bleu)}</span>
+<span class="s2">  .qmod{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--orange);</span>
+<span class="s2">    font-weight:800;margin-bottom:8px}</span>
+<span class="s2">  .qtext{font-size:22px;line-height:1.35;color:var(--bleu);font-weight:700;margin-bottom:24px}</span>
+<span class="s2">  .opt{display:flex;align-items:center;gap:14px;width:100%;text-align:left;</span>
+<span class="s2">    background:var(--blanc);border:2px solid #D8E0E8;color:var(--texte);</span>
+<span class="s2">    padding:16px 18px;border-radius:12px;font-size:16px;cursor:pointer;</span>
+<span class="s2">    margin-bottom:12px;transition:.13s;font-family:inherit}</span>
+<span class="s2">  .opt:hover{border-color:var(--bleu);background:#F5F9FD}</span>
+<span class="s2">  .opt .mark{flex:0 0 30px;height:30px;border-radius:50%;border:2px solid #C2CCD6;</span>
+<span class="s2">    display:flex;align-items:center;justify-content:center;font-weight:800;color:var(--gris)}</span>
+<span class="s2">  .opt.sel{border-color:var(--bleu);background:#EAF2FB}</span>
+<span class="s2">  .opt.sel .mark{background:var(--bleu);border-color:var(--bleu);color:#fff}</span>
+<span class="s2">  .score-wrap{text-align:center;padding:10px 0 4px}</span>
+<span class="s2">  .rname{font-size:15px;color:var(--gris);margin-bottom:10px}</span>
+<span class="s2">  .rname b{color:var(--bleu);font-size:18px}</span>
+<span class="s2">  .ring{width:170px;height:170px;margin:4px auto 8px}</span>
+<span class="s2">  .verdict{font-size:22px;font-weight:800;margin:6px 0 4px}</span>
+<span class="s2">  .vsub{color:var(--gris);font-size:15px;margin-bottom:22px}</span>
+<span class="s2">  .corr h2{font-size:17px;color:var(--bleu);margin:24px 0 14px;</span>
+<span class="s2">    border-bottom:2px solid var(--clair);padding-bottom:8px}</span>
+<span class="s2">  .item{border-radius:12px;padding:16px 18px;margin-bottom:12px;font-size:14.5px;line-height:1.55}</span>
+<span class="s2">  .item.ok{background:var(--vert-bg)}.item.ko{background:var(--rouge-bg)}</span>
+<span class="s2">  .item .iq{font-weight:700;color:var(--bleu);margin-bottom:8px}</span>
+<span class="s2">  .item .il{margin:3px 0}</span>
+<span class="s2">  .tag{font-weight:800;font-size:12px;padding:2px 9px;border-radius:6px;color:#fff}</span>
+<span class="s2">  .tag.ok{background:var(--vert)}.tag.ko{background:var(--rouge)}</span>
+<span class="s2">  .good{color:var(--vert);font-weight:700}.bad{color:var(--rouge);font-weight:700}</span>
+<span class="s2">  .expl{color:var(--gris);font-style:italic;margin-top:6px}</span>
+<span class="s2">  table.tb{width:100%;border-collapse:collapse;font-size:14px;margin:6px 0 18px}</span>
+<span class="s2">  table.tb th{background:var(--bleu);color:#fff;text-align:left;padding:11px 12px;font-size:13px}</span>
+<span class="s2">  table.tb td{padding:10px 12px;border-bottom:1px solid #E4EAF0}</span>
+<span class="s2">  table.tb tr:nth-child(even) td{background:#F5F8FB}</span>
+<span class="s2">  .kpi{display:flex;gap:14px;flex-wrap:wrap;margin:6px 0 18px}</span>
+<span class="s2">  .kpi div{background:var(--clair);border-radius:12px;padding:14px 20px;flex:1;min-width:140px}</span>
+<span class="s2">  .kpi b{display:block;font-size:26px;color:var(--bleu)}</span>
+<span class="s2">  .kpi span{font-size:12px;color:var(--gris);font-weight:600}</span>
+<span class="s2">  .note-box{background:#FFF6E6;border-left:4px solid var(--orange);padding:12px 16px;</span>
+<span class="s2">    border-radius:8px;font-size:13px;color:#6a5526;margin:14px 0}</span>
+<span class="s2">  .lnk{background:none;border:none;color:#9aa6b2;font-size:12px;cursor:pointer;</span>
+<span class="s2">    text-decoration:underline;font-family:inherit}</span>
+<span class="s2">  .foot{text-align:center;color:#9aa6b2;font-size:12px;margin-top:18px}</span>
+<span class="s2">  @media print{body{background:#fff;padding:0}.card{box-shadow:none}</span>
+<span class="s2">    .btn,.lnk,.note-box{display:none!important}}</span>
+<span class="s2">  @media (max-width:560px){.pad{padding:26px 22px}h1{font-size:21px}.qtext{font-size:19px}}</span>
+<span class="s2">&lt;/style&gt;</span>
+<span class="s2">&lt;/head&gt;</span>
+<span class="s2">&lt;body&gt;</span>
+<span class="s2">&lt;div class=&quot;app&quot;&gt;</span>
+<span class="s2">  &lt;div class=&quot;card&quot;&gt;&lt;div class=&quot;bandhead&quot;&gt;&lt;/div&gt;&lt;div class=&quot;pad&quot; id=&quot;screen&quot;&gt;&lt;/div&gt;&lt;/div&gt;</span>
+<span class="s2">  &lt;div class=&quot;foot&quot;&gt;ATIGROUPE&amp;nbsp;&amp;nbsp;•&amp;nbsp;&amp;nbsp;CNFPT Délégation Guyane&amp;nbsp;&amp;nbsp;•&amp;nbsp;&amp;nbsp;__MODTITRE__&lt;/div&gt;</span>
+<span class="s2">&lt;/div&gt;</span>
+<span class="s2">&lt;script&gt;</span>
+<span class="s2">const QUESTIONS = __QJSON__;</span>
+<span class="s2">const MOD_NUM = &quot;__MODNUM__&quot;;</span>
+<span class="s2">const MOD_TITRE = &quot;__MODTITRE__&quot;;</span>
+<span class="s2">const TOTAL = QUESTIONS.length;</span>
+<span class="s2">const STORE = &quot;cnfpt_quiz___STOREKEY__&quot;;</span>
+<span class="s2">const CODE_FORMATEUR = &quot;atigroupe&quot;;</span>
+<span class="s2">let idx=0, answers=[], student=&quot;&quot;;</span>
+<span class="s2">const scr=document.getElementById(&#39;screen&#39;);</span>
+<span class="s2">const esc=s=&gt;(&quot;&quot;+s).replace(/[&amp;&lt;&gt;&quot;]/g,c=&gt;({&#39;&amp;&#39;:&#39;&amp;amp;&#39;,&#39;&lt;&#39;:&#39;&amp;lt;&#39;,&#39;&gt;&#39;:&#39;&amp;gt;&#39;,&#39;&quot;&#39;:&#39;&amp;quot;&#39;}[c]));</span>
+
+<span class="s2">function loadAll(){ try{return JSON.parse(localStorage.getItem(STORE)||&quot;[]&quot;);}catch(e){return null;} }</span>
+<span class="s2">function saveOne(rec){</span>
+<span class="s2">  try{ const a=JSON.parse(localStorage.getItem(STORE)||&quot;[]&quot;); a.push(rec);</span>
+<span class="s2">       localStorage.setItem(STORE,JSON.stringify(a)); return true; }</span>
+<span class="s2">  catch(e){ return false; }</span>
+<span class="s2">}</span>
+
+<span class="s2">function renderHome(){</span>
+<span class="s2">  scr.innerHTML=`</span>
+<span class="s2">    &lt;div class=&quot;brand&quot;&gt;CNFPT Délégation Guyane — ATIGROUPE&lt;/div&gt;</span>
+<span class="s2">    &lt;h1&gt;Quiz — ${esc(MOD_NUM)} : ${esc(MOD_TITRE)}&lt;/h1&gt;</span>
+<span class="s2">    &lt;p class=&quot;lead&quot;&gt;Évaluation des acquis du module « ${esc(MOD_TITRE)} » —</span>
+<span class="s2">      &lt;b&gt;$</span><span class="si">{TOTAL}</span><span class="s2"> questions&lt;/b&gt; à choix unique. Indiquez votre nom, puis répondez</span>
+<span class="s2">      à chaque question. Votre note s&#39;affichera à la fin.&lt;/p&gt;</span>
+<span class="s2">    &lt;label class=&quot;fld&quot; for=&quot;nm&quot;&gt;Nom et prénom du stagiaire&lt;/label&gt;</span>
+<span class="s2">    &lt;input class=&quot;txt&quot; id=&quot;nm&quot; placeholder=&quot;Ex. : Marie DUPONT&quot; autocomplete=&quot;off&quot;</span>
+<span class="s2">      oninput=&quot;document.getElementById(&#39;go&#39;).disabled=!this.value.trim()&quot;</span>
+<span class="s2">      onkeydown=&quot;if(event.key===&#39;Enter&#39;&amp;&amp;this.value.trim())start()&quot;&gt;</span>
+<span class="s2">    &lt;div class=&quot;meta&quot;&gt;</span>
+<span class="s2">      &lt;span class=&quot;chip&quot;&gt;$</span><span class="si">{TOTAL}</span><span class="s2"> questions&lt;/span&gt;</span>
+<span class="s2">      &lt;span class=&quot;chip&quot;&gt;Correction automatique&lt;/span&gt;</span>
+<span class="s2">      &lt;span class=&quot;chip&quot;&gt;${esc(MOD_NUM)}&lt;/span&gt;</span>
+<span class="s2">    &lt;/div&gt;</span>
+<span class="s2">    &lt;button class=&quot;btn&quot; id=&quot;go&quot; disabled onclick=&quot;start()&quot;&gt;Commencer le quiz &amp;#8594;&lt;/button&gt;</span>
+<span class="s2">    &lt;div style=&quot;margin-top:26px&quot;&gt;</span>
+<span class="s2">      &lt;button class=&quot;lnk&quot; onclick=&quot;formateurLogin()&quot;&gt;Espace formateur&lt;/button&gt;</span>
+<span class="s2">    &lt;/div&gt;`;</span>
+<span class="s2">}</span>
+
+<span class="s2">function start(){</span>
+<span class="s2">  const v=document.getElementById(&#39;nm&#39;).value.trim();</span>
+<span class="s2">  if(!v) return;</span>
+<span class="s2">  student=v; idx=0; answers=new Array(TOTAL).fill(null); renderQ();</span>
+<span class="s2">}</span>
+
+<span class="s2">function renderQ(){</span>
+<span class="s2">  const q=QUESTIONS[idx], pct=Math.round(idx/TOTAL*100);</span>
+<span class="s2">  const opts=q.o.map((o,i)=&gt;`</span>
+<span class="s2">    &lt;button class=&quot;opt ${answers[idx]===i?&#39;sel&#39;:&#39;&#39;}&quot; onclick=&quot;pick($</span><span class="si">{i}</span><span class="s2">)&quot;&gt;</span>
+<span class="s2">      &lt;span class=&quot;mark&quot;&gt;${String.fromCharCode(65+i)}&lt;/span&gt;&lt;span&gt;${esc(o)}&lt;/span&gt;</span>
+<span class="s2">    &lt;/button&gt;`).join(&#39;&#39;);</span>
+<span class="s2">  scr.innerHTML=`</span>
+<span class="s2">    &lt;div class=&quot;prog&quot;&gt;&lt;i style=&quot;width:$</span><span class="si">{pct}</span><span class="s2">%&quot;&gt;&lt;/i&gt;&lt;/div&gt;</span>
+<span class="s2">    &lt;div class=&quot;pinfo&quot;&gt;&lt;span&gt;Question ${idx+1} / $</span><span class="si">{TOTAL}</span><span class="s2">&lt;/span&gt;&lt;span&gt;$</span><span class="si">{pct}</span><span class="s2">%&lt;/span&gt;&lt;/div&gt;</span>
+<span class="s2">    &lt;div class=&quot;who&quot;&gt;Stagiaire : &lt;b&gt;${esc(student)}&lt;/b&gt; &amp;nbsp;·&amp;nbsp; ${esc(MOD_NUM)}&lt;/div&gt;</span>
+<span class="s2">    &lt;div class=&quot;qmod&quot;&gt;${esc(MOD_TITRE)}&lt;/div&gt;</span>
+<span class="s2">    &lt;div class=&quot;qtext&quot;&gt;${esc(q.q)}&lt;/div&gt;</span>
+<span class="s2">    $</span><span class="si">{opts}</span>
+<span class="s2">    &lt;div class=&quot;row&quot; style=&quot;margin-top:20px;justify-content:space-between&quot;&gt;</span>
+<span class="s2">      &lt;button class=&quot;btn ghost&quot; onclick=&quot;prev()&quot; ${idx===0?&#39;disabled&#39;:&#39;&#39;}&gt;&amp;#8592; Pr&amp;eacute;c&amp;eacute;dent&lt;/button&gt;</span>
+<span class="s2">      &lt;button class=&quot;btn orange&quot; onclick=&quot;next()&quot; ${answers[idx]===null?&#39;disabled&#39;:&#39;&#39;}&gt;</span>
+<span class="s2">        ${idx===TOTAL-1?&#39;Terminer et voir ma note&#39;:&#39;Suivant &amp;#8594;&#39;}&lt;/button&gt;</span>
+<span class="s2">    &lt;/div&gt;`;</span>
+<span class="s2">}</span>
+<span class="s2">function pick(i){answers[idx]=i;renderQ();}</span>
+<span class="s2">function prev(){if(idx&gt;0){idx--;renderQ();}}</span>
+<span class="s2">function next(){if(answers[idx]===null)return;</span>
+<span class="s2">  if(idx&lt;TOTAL-1){idx++;renderQ();}else finish();}</span>
+
+<span class="s2">function finish(){</span>
+<span class="s2">  let score=0; QUESTIONS.forEach((q,i)=&gt;{if(answers[i]===q.c)score++;});</span>
+<span class="s2">  const pct=Math.round(score/TOTAL*100);</span>
+<span class="s2">  const now=new Date();</span>
+<span class="s2">  const date=now.toLocaleDateString(&#39;fr-FR&#39;)+&#39; &#39;+now.toLocaleTimeString(&#39;fr-FR&#39;).slice(0,5);</span>
+<span class="s2">  const rec={nom:student,module:MOD_NUM,modtitre:MOD_TITRE,score:score,</span>
+<span class="s2">             total:TOTAL,pct:pct,date:date,reponses:answers.slice()};</span>
+<span class="s2">  const saved=saveOne(rec);</span>
+<span class="s2">  renderResult(rec, saved);</span>
+<span class="s2">}</span>
+
+<span class="s2">function renderResult(rec, saved){</span>
+<span class="s2">  const nom=rec.nom, score=rec.score, pct=rec.pct;</span>
+<span class="s2">  let v,vs,col;</span>
+<span class="s2">  if(pct&gt;=80){v=&quot;Excellent !&quot;;vs=&quot;Le module est bien ma&amp;icirc;tris&amp;eacute;.&quot;;col=&quot;#1B7A2F&quot;;}</span>
+<span class="s2">  else if(pct&gt;=60){v=&quot;Bien&quot;;vs=&quot;Bonne base, quelques points &amp;agrave; revoir.&quot;;col=&quot;#0C447C&quot;;}</span>
+<span class="s2">  else if(pct&gt;=40){v=&quot;&amp;Agrave; consolider&quot;;vs=&quot;Revoyez le module avant de continuer.&quot;;col=&quot;#F18F01&quot;;}</span>
+<span class="s2">  else{v=&quot;&amp;Agrave; revoir&quot;;vs=&quot;Une r&amp;eacute;vision du module est recommand&amp;eacute;e.&quot;;col=&quot;#B3261E&quot;;}</span>
+<span class="s2">  const R=70,C=2*Math.PI*R,off=C*(1-score/TOTAL);</span>
+<span class="s2">  const items=QUESTIONS.map((q,i)=&gt;{</span>
+<span class="s2">    const ok=answers[i]===q.c;</span>
+<span class="s2">    const your=answers[i]==null?&#39;&lt;i&gt;non r&amp;eacute;pondu&lt;/i&gt;&#39;:esc(q.o[answers[i]]);</span>
+<span class="s2">    return `&lt;div class=&quot;item ${ok?&#39;ok&#39;:&#39;ko&#39;}&quot;&gt;</span>
+<span class="s2">      &lt;div class=&quot;iq&quot;&gt;&lt;span class=&quot;tag ${ok?&#39;ok&#39;:&#39;ko&#39;}&quot;&gt;${ok?&#39;JUSTE&#39;:&#39;FAUX&#39;}&lt;/span&gt;</span>
+<span class="s2">        &amp;nbsp; ${i+1}. ${esc(q.q)}&lt;/div&gt;</span>
+<span class="s2">      &lt;div class=&quot;il&quot;&gt;R&amp;eacute;ponse donn&amp;eacute;e : &lt;span class=&quot;${ok?&#39;good&#39;:&#39;bad&#39;}&quot;&gt;$</span><span class="si">{your}</span><span class="s2">&lt;/span&gt;&lt;/div&gt;</span>
+<span class="s2">      ${ok?&#39;&#39;:`&lt;div class=&quot;il&quot;&gt;Bonne r&amp;eacute;ponse : &lt;span class=&quot;good&quot;&gt;${esc(q.o[q.c])}&lt;/span&gt;&lt;/div&gt;`}</span>
+<span class="s2">      &lt;div class=&quot;expl&quot;&gt;${esc(q.f)}&lt;/div&gt;&lt;/div&gt;`;</span>
+<span class="s2">  }).join(&#39;&#39;);</span>
+<span class="s2">  scr.innerHTML=`</span>
+<span class="s2">    &lt;div class=&quot;brand&quot;&gt;R&amp;eacute;sultat — ${esc(MOD_NUM)}&lt;/div&gt;</span>
+<span class="s2">    &lt;div class=&quot;score-wrap&quot;&gt;</span>
+<span class="s2">      &lt;div class=&quot;rname&quot;&gt;Stagiaire : &lt;b&gt;${esc(nom)}&lt;/b&gt; &amp;nbsp;&amp;middot;&amp;nbsp; ${esc(rec.date)}&lt;/div&gt;</span>
+<span class="s2">      &lt;svg class=&quot;ring&quot; viewBox=&quot;0 0 170 170&quot;&gt;</span>
+<span class="s2">        &lt;circle cx=&quot;85&quot; cy=&quot;85&quot; r=&quot;$</span><span class="si">{R}</span><span class="s2">&quot; fill=&quot;none&quot; stroke=&quot;#E6ECF1&quot; stroke-width=&quot;14&quot;/&gt;</span>
+<span class="s2">        &lt;circle cx=&quot;85&quot; cy=&quot;85&quot; r=&quot;$</span><span class="si">{R}</span><span class="s2">&quot; fill=&quot;none&quot; stroke=&quot;$</span><span class="si">{col}</span><span class="s2">&quot; stroke-width=&quot;14&quot;</span>
+<span class="s2">          stroke-linecap=&quot;round&quot; stroke-dasharray=&quot;$</span><span class="si">{C}</span><span class="s2">&quot; stroke-dashoffset=&quot;$</span><span class="si">{off}</span><span class="s2">&quot;</span>
+<span class="s2">          transform=&quot;rotate(-90 85 85)&quot;/&gt;</span>
+<span class="s2">        &lt;text x=&quot;85&quot; y=&quot;80&quot; text-anchor=&quot;middle&quot; font-size=&quot;38&quot; font-weight=&quot;800&quot; fill=&quot;$</span><span class="si">{col}</span><span class="s2">&quot;&gt;$</span><span class="si">{score}</span><span class="s2">&lt;/text&gt;</span>
+<span class="s2">        &lt;text x=&quot;85&quot; y=&quot;104&quot; text-anchor=&quot;middle&quot; font-size=&quot;14&quot; fill=&quot;#6B7785&quot;&gt;sur $</span><span class="si">{TOTAL}</span><span class="s2">&lt;/text&gt;</span>
+<span class="s2">      &lt;/svg&gt;</span>
+<span class="s2">      &lt;div class=&quot;verdict&quot; style=&quot;color:$</span><span class="si">{col}</span><span class="s2">&quot;&gt;$</span><span class="si">{v}</span><span class="s2"> — $</span><span class="si">{pct}</span><span class="s2">%&lt;/div&gt;</span>
+<span class="s2">      &lt;div class=&quot;vsub&quot;&gt;$</span><span class="si">{vs}</span><span class="s2">&lt;/div&gt;</span>
+<span class="s2">      &lt;div class=&quot;row&quot; style=&quot;justify-content:center&quot;&gt;</span>
+<span class="s2">        &lt;button class=&quot;btn orange&quot; onclick=&#39;dlFiche(${JSON.stringify(rec)})&#39;&gt;&amp;#8595; T&amp;eacute;l&amp;eacute;charger ma fiche de r&amp;eacute;sultats (CSV)&lt;/button&gt;</span>
+<span class="s2">      &lt;/div&gt;</span>
+<span class="s2">      &lt;div class=&quot;note-box&quot; style=&quot;background:#E8F0F8;border-left-color:#0C447C;color:#0C447C&quot;&gt;</span>
+<span class="s2">        &lt;b&gt;&amp;#128206; &amp;Eacute;tape importante :&lt;/b&gt; cliquez sur « T&amp;eacute;l&amp;eacute;charger ma fiche »</span>
+<span class="s2">        puis &lt;b&gt;remettez le fichier au formateur&lt;/b&gt; (cl&amp;eacute; USB, dossier partag&amp;eacute;</span>
+<span class="s2">        ou courriel). C&#39;est ce fichier qui permet d&#39;\u00e9tablir le bilan de la formation.</span>
+<span class="s2">      &lt;/div&gt;</span>
+<span class="s2">      &lt;div class=&quot;row&quot; style=&quot;justify-content:center;margin-top:6px&quot;&gt;</span>
+<span class="s2">        &lt;button class=&quot;btn sm&quot; onclick=&quot;window.print()&quot;&gt;Imprimer (archivage)&lt;/button&gt;</span>
+<span class="s2">        &lt;button class=&quot;btn ghost sm&quot; onclick=&quot;renderHome()&quot;&gt;&amp;#8635; Nouveau stagiaire&lt;/button&gt;</span>
+<span class="s2">      &lt;/div&gt;</span>
+<span class="s2">    &lt;/div&gt;</span>
+<span class="s2">    &lt;div class=&quot;corr&quot;&gt;&lt;h2&gt;Correction d&amp;eacute;taill&amp;eacute;e&lt;/h2&gt;$</span><span class="si">{items}</span><span class="s2">&lt;/div&gt;`;</span>
+<span class="s2">  window.scrollTo(0,0);</span>
+<span class="s2">}</span>
+
+<span class="s2">function csvDL(filename, rows){</span>
+<span class="s2">  const txt=&quot;\ufeff&quot;+rows.map(r=&gt;r.map(c=&gt;&#39;&quot;&#39;+(&quot;&quot;+c).replace(/&quot;/g,&#39;&quot;&quot;&#39;)+&#39;&quot;&#39;).join(&#39;;&#39;)).join(&quot;\r\n&quot;);</span>
+<span class="s2">  const b=new Blob([txt],{type:&#39;text/csv;charset=utf-8&#39;});</span>
+<span class="s2">  const a=document.createElement(&#39;a&#39;);</span>
+<span class="s2">  a.href=URL.createObjectURL(b); a.download=filename;</span>
+<span class="s2">  document.body.appendChild(a); a.click(); a.remove();</span>
+<span class="s2">}</span>
+<span class="s2">function slug(s){</span>
+<span class="s2">  return (&quot;&quot;+s).normalize(&#39;NFD&#39;).replace(/[\u0300-\u036f]/g,&#39;&#39;)</span>
+<span class="s2">    .replace(/[^a-zA-Z0-9]+/g,&#39;_&#39;).replace(/^_+|_+$/g,&#39;&#39;);</span>
+<span class="s2">}</span>
+<span class="s2">function dlFiche(rec){</span>
+<span class="s2">  const rows=[];</span>
+<span class="s2">  // Bloc identité (lignes clé/valeur, faciles à filtrer dans Excel)</span>
+<span class="s2">  rows.push([&quot;Nom et prénom&quot;, rec.nom]);</span>
+<span class="s2">  rows.push([&quot;Module&quot;, rec.module + &quot; — &quot; + rec.modtitre]);</span>
+<span class="s2">  rows.push([&quot;Note&quot;, rec.score + &quot; / &quot; + rec.total]);</span>
+<span class="s2">  rows.push([&quot;Pourcentage&quot;, rec.pct + &quot;%&quot;]);</span>
+<span class="s2">  rows.push([&quot;Date&quot;, rec.date]);</span>
+<span class="s2">  rows.push([]);</span>
+<span class="s2">  // Tableau détaillé : une ligne par question</span>
+<span class="s2">  rows.push([&quot;Nom&quot;,&quot;Module&quot;,&quot;N°&quot;,&quot;Question&quot;,&quot;Réponse du stagiaire&quot;,</span>
+<span class="s2">             &quot;Bonne réponse&quot;,&quot;Résultat&quot;]);</span>
+<span class="s2">  QUESTIONS.forEach((q,i)=&gt;{</span>
+<span class="s2">    const a=rec.reponses[i];</span>
+<span class="s2">    const donnee = (a==null) ? &quot;(non répondu)&quot; : q.o[a];</span>
+<span class="s2">    const ok = (a===q.c) ? &quot;JUSTE&quot; : &quot;FAUX&quot;;</span>
+<span class="s2">    rows.push([rec.nom, rec.module, (i+1), q.q, donnee, q.o[q.c], ok]);</span>
+<span class="s2">  });</span>
+<span class="s2">  const fname = slug(rec.module) + &quot;__&quot; + slug(rec.nom) + &quot;.csv&quot;;</span>
+<span class="s2">  csvDL(fname, rows);</span>
+<span class="s2">}</span>
+
+<span class="s2">function formateurLogin(){</span>
+<span class="s2">  const c=prompt(&quot;Espace formateur — code d&#39;acc\u00e8s :&quot;);</span>
+<span class="s2">  if(c===null) return;</span>
+<span class="s2">  if(c.trim().toLowerCase()!==CODE_FORMATEUR){ alert(&quot;Code incorrect.&quot;); return; }</span>
+<span class="s2">  renderDashboard();</span>
+<span class="s2">}</span>
+<span class="s2">function renderDashboard(){</span>
+<span class="s2">  const all=loadAll();</span>
+<span class="s2">  if(all===null){</span>
+<span class="s2">    scr.innerHTML=`&lt;div class=&quot;brand&quot;&gt;Espace formateur&lt;/div&gt;</span>
+<span class="s2">      &lt;h1&gt;Tableau de bord — ${esc(MOD_NUM)}&lt;/h1&gt;</span>
+<span class="s2">      &lt;div class=&quot;note-box&quot;&gt;Le suivi fonctionne une fois ce fichier</span>
+<span class="s2">        &lt;b&gt;enregistr&amp;eacute; et ouvert depuis votre ordinateur&lt;/b&gt; (double-clic).&lt;/div&gt;</span>
+<span class="s2">      &lt;button class=&quot;btn ghost&quot; onclick=&quot;renderHome()&quot;&gt;&amp;#8592; Retour&lt;/button&gt;`;</span>
+<span class="s2">    return;</span>
+<span class="s2">  }</span>
+<span class="s2">  let rows=`&lt;tr&gt;&lt;th&gt;#&lt;/th&gt;&lt;th&gt;Nom et pr&amp;eacute;nom&lt;/th&gt;&lt;th&gt;Note&lt;/th&gt;&lt;th&gt;%&lt;/th&gt;&lt;th&gt;Date&lt;/th&gt;&lt;/tr&gt;`;</span>
+<span class="s2">  all.forEach((r,i)=&gt;{rows+=`&lt;tr&gt;&lt;td&gt;${i+1}&lt;/td&gt;&lt;td&gt;${esc(r.nom)}&lt;/td&gt;</span>
+<span class="s2">    &lt;td&gt;$</span><span class="si">{r.score}</span><span class="s2"> / $</span><span class="si">{r.total}</span><span class="s2">&lt;/td&gt;&lt;td&gt;$</span><span class="si">{r.pct}</span><span class="s2">%&lt;/td&gt;&lt;td&gt;${esc(r.date)}&lt;/td&gt;&lt;/tr&gt;`;});</span>
+<span class="s2">  const n=all.length;</span>
+<span class="s2">  const moy=n? (all.reduce((s,r)=&gt;s+r.pct,0)/n) : 0;</span>
+<span class="s2">  const reussite=n? Math.round(all.filter(r=&gt;r.pct&gt;=60).length/n*100) : 0;</span>
+<span class="s2">  scr.innerHTML=`</span>
+<span class="s2">    &lt;div class=&quot;brand&quot;&gt;Espace formateur — ${esc(MOD_NUM)}&lt;/div&gt;</span>
+<span class="s2">    &lt;h1&gt;Suivi des stagiaires&lt;/h1&gt;</span>
+<span class="s2">    &lt;div class=&quot;kpi&quot;&gt;</span>
+<span class="s2">      &lt;div&gt;&lt;b&gt;$</span><span class="si">{n}</span><span class="s2">&lt;/b&gt;&lt;span&gt;QUIZ COMPL&amp;Eacute;T&amp;Eacute;S&lt;/span&gt;&lt;/div&gt;</span>
+<span class="s2">      &lt;div&gt;&lt;b&gt;${moy.toFixed(0)}%&lt;/b&gt;&lt;span&gt;MOYENNE&lt;/span&gt;&lt;/div&gt;</span>
+<span class="s2">      &lt;div&gt;&lt;b&gt;$</span><span class="si">{reussite}</span><span class="s2">%&lt;/b&gt;&lt;span&gt;&amp;#8805; 60% (R&amp;Eacute;USSITE)&lt;/span&gt;&lt;/div&gt;</span>
+<span class="s2">    &lt;/div&gt;</span>
+<span class="s2">    ${n? `&lt;table class=&quot;tb&quot;&gt;$</span><span class="si">{rows}</span><span class="s2">&lt;/table&gt;` : &#39;&lt;p class=&quot;lead&quot;&gt;Aucun r&amp;eacute;sultat enregistr&amp;eacute;.&lt;/p&gt;&#39;}</span>
+<span class="s2">    &lt;div class=&quot;row&quot;&gt;</span>
+<span class="s2">      &lt;button class=&quot;btn orange sm&quot; onclick=&quot;exportAll()&quot; ${n?&#39;&#39;:&#39;disabled&#39;}&gt;&amp;#8595; Exporter (CSV)&lt;/button&gt;</span>
+<span class="s2">      &lt;button class=&quot;btn ghost sm&quot; onclick=&quot;renderDashboard()&quot;&gt;&amp;#8635; Actualiser&lt;/button&gt;</span>
+<span class="s2">      &lt;button class=&quot;btn ghost sm&quot; onclick=&quot;wipe()&quot; ${n?&#39;&#39;:&#39;disabled&#39;}&gt;Effacer l&#39;historique&lt;/button&gt;</span>
+<span class="s2">      &lt;button class=&quot;btn ghost sm&quot; onclick=&quot;renderHome()&quot;&gt;&amp;#8592; Retour&lt;/button&gt;</span>
+<span class="s2">    &lt;/div&gt;</span>
+<span class="s2">    &lt;div class=&quot;note-box&quot;&gt;L&#39;historique est conserv&amp;eacute; sur &lt;b&gt;ce poste et ce navigateur&lt;/b&gt;.&lt;/div&gt;`;</span>
+<span class="s2">}</span>
+<span class="s2">function exportAll(){</span>
+<span class="s2">  const all=loadAll()||[];</span>
+<span class="s2">  const rows=[[&quot;Nom et prénom&quot;,&quot;Module&quot;,&quot;Note&quot;,&quot;Sur&quot;,&quot;Pourcentage&quot;,&quot;Date&quot;,</span>
+<span class="s2">               &quot;N°&quot;,&quot;Question&quot;,&quot;Réponse du stagiaire&quot;,&quot;Bonne réponse&quot;,&quot;Résultat&quot;]];</span>
+<span class="s2">  all.forEach(r=&gt;{</span>
+<span class="s2">    if(r.reponses){</span>
+<span class="s2">      QUESTIONS.forEach((q,i)=&gt;{</span>
+<span class="s2">        const a=r.reponses[i];</span>
+<span class="s2">        const donnee=(a==null)?&quot;(non répondu)&quot;:q.o[a];</span>
+<span class="s2">        const ok=(a===q.c)?&quot;JUSTE&quot;:&quot;FAUX&quot;;</span>
+<span class="s2">        rows.push([r.nom,r.module,r.score,r.total,r.pct+&quot;%&quot;,r.date,</span>
+<span class="s2">                   (i+1),q.q,donnee,q.o[q.c],ok]);</span>
+<span class="s2">      });</span>
+<span class="s2">    } else {</span>
+<span class="s2">      rows.push([r.nom,r.module,r.score,r.total,r.pct+&quot;%&quot;,r.date,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;]);</span>
+<span class="s2">    }</span>
+<span class="s2">  });</span>
+<span class="s2">  csvDL(&quot;Resultats_&quot;+slug(MOD_NUM)+&quot;_detaille.csv&quot;,rows);</span>
+<span class="s2">}</span>
+<span class="s2">function wipe(){</span>
+<span class="s2">  if(confirm(&quot;Effacer d\u00e9finitivement tous les r\u00e9sultats de ce module sur ce poste ?&quot;)){</span>
+<span class="s2">    try{localStorage.removeItem(STORE);}catch(e)</span><span class="si">{}</span>
+<span class="s2">    renderDashboard();</span>
+<span class="s2">  }</span>
+<span class="s2">}</span>
+
+<span class="s2">renderHome();</span>
+<span class="s2">&lt;/script&gt;</span>
+<span class="s2">&lt;/body&gt;</span>
+<span class="s2">&lt;/html&gt;&quot;&quot;&quot;</span>
+
+<span class="n">out_paths</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">num</span><span class="p">,</span> <span class="n">titre</span><span class="p">,</span> <span class="n">stem</span><span class="p">,</span> <span class="n">questions</span> <span class="ow">in</span> <span class="n">MODULES</span><span class="p">:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="p">[{</span><span class="s2">&quot;q&quot;</span><span class="p">:</span> <span class="n">e</span><span class="p">,</span> <span class="s2">&quot;o&quot;</span><span class="p">:</span> <span class="n">o</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">:</span> <span class="n">c</span><span class="p">,</span> <span class="s2">&quot;f&quot;</span><span class="p">:</span> <span class="n">f</span><span class="p">}</span> <span class="k">for</span> <span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span> <span class="ow">in</span> <span class="n">questions</span><span class="p">]</span>
+    <span class="n">qjson</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">ensure_ascii</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">storekey</span> <span class="o">=</span> <span class="n">stem</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;CNFPT_Quiz_&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+    <span class="n">html</span> <span class="o">=</span> <span class="p">(</span><span class="n">TEMPLATE</span>
+            <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;__QJSON__&quot;</span><span class="p">,</span> <span class="n">qjson</span><span class="p">)</span>
+            <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;__HEAD__&quot;</span><span class="p">,</span> <span class="n">HEAD_B64</span><span class="p">)</span>
+            <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;__MODNUM__&quot;</span><span class="p">,</span> <span class="n">num</span><span class="p">)</span>
+            <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;__MODTITRE__&quot;</span><span class="p">,</span> <span class="n">titre</span><span class="p">)</span>
+            <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;__STOREKEY__&quot;</span><span class="p">,</span> <span class="n">storekey</span><span class="p">))</span>
+    <span class="n">path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;/mnt/user-data/outputs/</span><span class="si">{</span><span class="n">stem</span><span class="si">}</span><span class="s2">.html&quot;</span>
+    <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">html</span><span class="p">)</span>
+    <span class="n">out_paths</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;OK </span><span class="si">{</span><span class="n">stem</span><span class="si">}</span><span class="s2">.html — </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="si">}</span><span class="s2"> questions&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">TERMINÉ —&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">out_paths</span><span class="p">),</span> <span class="s2">&quot;quiz générés&quot;</span><span class="p">)</span>
+</pre></div></td></tr></table></div>
+</div></div></body></html>

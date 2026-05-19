@@ -1,0 +1,289 @@
+/* ============================================================
+   Plateforme de formation ATIGROUPE
+   Feuille de style principale
+   Identité : bleu #0C447C — accent orange #F18F01
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+:root {
+  --bleu:        #0C447C;
+  --bleu-fonce:  #082F57;
+  --bleu-nuit:   #061F3B;
+  --bleu-clair:  #E9F0F7;
+  --bleu-pale:   #F4F8FC;
+  --orange:      #F18F01;
+  --orange-clair:#FCEBD0;
+  --blanc:       #FFFFFF;
+  --texte:       #1E2A38;
+  --gris:        #5C6B7A;
+  --gris-clair:  #D7DEE6;
+  --gris-bord:   #E6EBF1;
+  --vert:        #1B7A2F;
+  --ombre-s:     0 1px 2px rgba(8,31,59,.06);
+  --ombre-m:     0 8px 24px rgba(8,31,59,.10);
+  --ombre-l:     0 22px 55px rgba(8,31,59,.16);
+  --rayon:       16px;
+  --rayon-s:     10px;
+  --max:         1180px;
+  --transition:  .22s cubic-bezier(.4,0,.2,1);
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+html { scroll-behavior:smooth; -webkit-text-size-adjust:100%; }
+
+body {
+  font-family:"Public Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color:var(--texte);
+  background:var(--bleu-pale);
+  line-height:1.65;
+  font-size:16px;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+}
+
+h1,h2,h3,h4 { font-family:"Bricolage Grotesque", sans-serif; line-height:1.15; font-weight:700; letter-spacing:-.02em; }
+
+a { color:inherit; text-decoration:none; }
+
+img { max-width:100%; display:block; }
+
+.conteneur { width:100%; max-width:var(--max); margin:0 auto; padding:0 24px; }
+
+/* ---------- En-tête ---------- */
+.entete {
+  background:var(--blanc);
+  border-bottom:1px solid var(--gris-bord);
+  position:sticky; top:0; z-index:50;
+  box-shadow:var(--ombre-s);
+}
+.entete-in {
+  display:flex; align-items:center; justify-content:space-between;
+  padding:16px 24px; max-width:var(--max); margin:0 auto;
+}
+.marque { display:flex; align-items:center; gap:14px; }
+.marque-logo {
+  width:46px; height:46px; border-radius:12px;
+  background:linear-gradient(135deg,var(--bleu) 0%,var(--bleu-fonce) 100%);
+  display:flex; align-items:center; justify-content:center;
+  color:var(--blanc); font-family:"Bricolage Grotesque"; font-weight:800;
+  font-size:20px; letter-spacing:-.04em; flex-shrink:0;
+}
+.marque-txt strong {
+  display:block; font-family:"Bricolage Grotesque"; font-weight:700;
+  font-size:18px; color:var(--bleu); letter-spacing:-.02em; line-height:1.1;
+}
+.marque-txt span { display:block; font-size:12.5px; color:var(--gris); font-weight:500; }
+.entete-lien {
+  font-size:14px; font-weight:600; color:var(--bleu);
+  padding:9px 16px; border-radius:999px; border:1.5px solid var(--bleu-clair);
+  transition:var(--transition);
+}
+.entete-lien:hover { background:var(--bleu-clair); border-color:var(--bleu); }
+
+/* ---------- Fil d'Ariane ---------- */
+.fil {
+  font-size:14px; color:var(--gris); padding:22px 0 4px;
+  display:flex; align-items:center; gap:8px; flex-wrap:wrap;
+}
+.fil a { color:var(--bleu); font-weight:600; }
+.fil a:hover { text-decoration:underline; }
+.fil span.sep { color:var(--gris-clair); }
+
+/* ---------- Bannière d'accueil ---------- */
+.hero {
+  background:linear-gradient(150deg,var(--bleu-nuit) 0%,var(--bleu) 55%,var(--bleu-fonce) 100%);
+  color:var(--blanc);
+  position:relative; overflow:hidden;
+  padding:74px 0 86px;
+}
+.hero::after {
+  content:""; position:absolute; right:-120px; top:-120px;
+  width:420px; height:420px; border-radius:50%;
+  background:radial-gradient(circle,rgba(241,143,1,.22) 0%,transparent 70%);
+}
+.hero::before {
+  content:""; position:absolute; left:0; bottom:0; width:100%; height:6px;
+  background:linear-gradient(90deg,var(--orange) 0%,var(--orange) 18%,transparent 18%);
+}
+.hero-in { position:relative; z-index:2; max-width:760px; }
+.hero .surtitre {
+  display:inline-block; font-size:13px; font-weight:700; letter-spacing:3px;
+  text-transform:uppercase; color:var(--orange);
+  background:rgba(241,143,1,.12); padding:7px 16px; border-radius:999px;
+  margin-bottom:22px;
+}
+.hero h1 { font-size:clamp(2rem,4.6vw,3.4rem); font-weight:800; margin-bottom:18px; }
+.hero p { font-size:clamp(1rem,1.6vw,1.18rem); color:#C9DBEC; max-width:620px; }
+
+/* ---------- Section ---------- */
+.section { padding:56px 0; }
+.section-titre {
+  display:flex; align-items:baseline; gap:14px; flex-wrap:wrap;
+  margin-bottom:30px;
+}
+.section-titre h2 { font-size:1.7rem; color:var(--bleu); font-weight:700; }
+.section-titre .pastille {
+  font-size:13px; font-weight:700; color:var(--bleu);
+  background:var(--bleu-clair); padding:5px 13px; border-radius:999px;
+}
+.section-intro { color:var(--gris); max-width:640px; margin:-18px 0 30px; }
+
+/* ---------- Grille de cartes ---------- */
+.grille {
+  display:grid; gap:22px;
+  grid-template-columns:repeat(auto-fill,minmax(310px,1fr));
+}
+
+/* Carte formation */
+.carte-formation {
+  background:var(--blanc); border-radius:var(--rayon);
+  border:1px solid var(--gris-bord); overflow:hidden;
+  display:flex; flex-direction:column;
+  transition:var(--transition);
+  animation:apparition .5s both;
+}
+.carte-formation:hover { transform:translateY(-5px); box-shadow:var(--ombre-l); border-color:var(--bleu-clair); }
+.cf-bandeau {
+  height:8px; background:linear-gradient(90deg,var(--bleu),var(--orange));
+}
+.cf-corps { padding:28px 26px 26px; flex:1; display:flex; flex-direction:column; }
+.cf-client {
+  font-size:12px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase;
+  color:var(--orange); margin-bottom:10px;
+}
+.cf-corps h3 { font-size:1.32rem; color:var(--bleu); margin-bottom:12px; }
+.cf-resume { color:var(--gris); font-size:15px; flex:1; margin-bottom:22px; }
+.cf-meta { display:flex; gap:18px; font-size:13.5px; color:var(--gris); margin-bottom:22px; }
+.cf-meta b { color:var(--texte); }
+.cf-cta {
+  display:inline-flex; align-items:center; gap:9px; align-self:flex-start;
+  background:var(--bleu); color:var(--blanc); font-weight:600; font-size:15px;
+  padding:12px 22px; border-radius:999px; transition:var(--transition);
+}
+.cf-cta:hover { background:var(--bleu-fonce); gap:13px; }
+.cf-cta svg { transition:var(--transition); }
+
+/* Carte ressource (module / quiz) */
+.carte-res {
+  background:var(--blanc); border-radius:var(--rayon-s);
+  border:1px solid var(--gris-bord); padding:22px 22px;
+  display:flex; flex-direction:column; gap:8px;
+  transition:var(--transition); position:relative;
+  animation:apparition .45s both;
+}
+.carte-res:hover { transform:translateY(-3px); box-shadow:var(--ombre-m); border-color:var(--bleu-clair); }
+.cr-tag {
+  align-self:flex-start; font-size:11.5px; font-weight:700; letter-spacing:.5px;
+  text-transform:uppercase; padding:4px 11px; border-radius:6px; margin-bottom:4px;
+}
+.cr-tag.support { background:var(--bleu-clair); color:var(--bleu); }
+.cr-tag.quiz    { background:var(--orange-clair); color:#A15F00; }
+.carte-res h3 { font-size:1.12rem; color:var(--texte); }
+.carte-res p  { color:var(--gris); font-size:14px; flex:1; }
+.cr-actions { display:flex; gap:10px; margin-top:14px; flex-wrap:wrap; }
+.btn {
+  display:inline-flex; align-items:center; gap:8px;
+  font-weight:600; font-size:14px; padding:10px 18px; border-radius:999px;
+  cursor:pointer; transition:var(--transition); border:1.5px solid transparent;
+}
+.btn-plein { background:var(--bleu); color:var(--blanc); }
+.btn-plein:hover { background:var(--bleu-fonce); }
+.btn-ligne { background:transparent; color:var(--bleu); border-color:var(--gris-clair); }
+.btn-ligne:hover { border-color:var(--bleu); background:var(--bleu-clair); }
+
+/* ---------- Vide / placeholder ---------- */
+.vide {
+  background:var(--blanc); border:2px dashed var(--gris-clair);
+  border-radius:var(--rayon); padding:54px 30px; text-align:center; color:var(--gris);
+}
+.vide svg { margin:0 auto 16px; opacity:.5; }
+.vide strong { display:block; color:var(--texte); font-size:1.1rem; margin-bottom:6px; font-family:"Bricolage Grotesque"; }
+
+/* ---------- Lecteur (visionneuse) ---------- */
+.lecteur-page { height:100vh; display:flex; flex-direction:column; overflow:hidden; }
+.lecteur-barre {
+  background:var(--bleu); color:var(--blanc);
+  display:flex; align-items:center; justify-content:space-between;
+  padding:11px 20px; flex-shrink:0; gap:14px;
+}
+.lb-gauche { display:flex; align-items:center; gap:14px; min-width:0; }
+.lb-retour {
+  display:inline-flex; align-items:center; gap:7px;
+  background:rgba(255,255,255,.14); color:var(--blanc);
+  font-size:14px; font-weight:600; padding:8px 15px; border-radius:999px;
+  transition:var(--transition); white-space:nowrap;
+}
+.lb-retour:hover { background:rgba(255,255,255,.26); }
+.lb-titre {
+  font-family:"Bricolage Grotesque"; font-weight:600; font-size:15px;
+  white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+}
+.lb-titre small { display:block; font-family:"Public Sans"; font-weight:400; font-size:12px; color:#BBD2E8; }
+.lb-actions { display:flex; gap:10px; flex-shrink:0; }
+.lb-actions a {
+  display:inline-flex; align-items:center; gap:7px;
+  background:var(--orange); color:#fff; font-size:13.5px; font-weight:600;
+  padding:8px 15px; border-radius:999px; transition:var(--transition); white-space:nowrap;
+}
+.lb-actions a:hover { filter:brightness(1.08); }
+.lecteur-cadre { flex:1; border:0; width:100%; background:var(--blanc); }
+
+/* ---------- Pied de page ---------- */
+.pied {
+  margin-top:auto; background:var(--bleu-nuit); color:#9FB6CC;
+  padding:34px 0; font-size:13.5px;
+}
+.pied-in {
+  max-width:var(--max); margin:0 auto; padding:0 24px;
+  display:flex; align-items:center; justify-content:space-between; gap:18px; flex-wrap:wrap;
+}
+.pied strong { color:var(--blanc); font-family:"Bricolage Grotesque"; }
+.pied a { color:var(--orange); font-weight:600; }
+
+/* ---------- Chargement / erreur ---------- */
+.etat {
+  text-align:center; padding:80px 24px; color:var(--gris);
+}
+.etat .spin {
+  width:42px; height:42px; border:4px solid var(--bleu-clair);
+  border-top-color:var(--bleu); border-radius:50%;
+  margin:0 auto 18px; animation:tourne .8s linear infinite;
+}
+.etat.err strong { color:#B3261E; display:block; font-size:1.15rem; margin-bottom:8px; font-family:"Bricolage Grotesque"; }
+
+/* ---------- Animations ---------- */
+@keyframes apparition { from { opacity:0; transform:translateY(14px); } to { opacity:1; transform:none; } }
+@keyframes tourne { to { transform:rotate(360deg); } }
+.grille > *:nth-child(1){animation-delay:.02s}
+.grille > *:nth-child(2){animation-delay:.07s}
+.grille > *:nth-child(3){animation-delay:.12s}
+.grille > *:nth-child(4){animation-delay:.17s}
+.grille > *:nth-child(5){animation-delay:.22s}
+.grille > *:nth-child(6){animation-delay:.27s}
+.grille > *:nth-child(7){animation-delay:.32s}
+.grille > *:nth-child(8){animation-delay:.37s}
+
+/* ---------- Responsive ---------- */
+@media (max-width:640px) {
+  .conteneur { padding:0 18px; }
+  .entete-in { padding:13px 18px; }
+  .marque-logo { width:40px; height:40px; font-size:17px; }
+  .marque-txt strong { font-size:16px; }
+  .hero { padding:54px 0 64px; }
+  .section { padding:40px 0; }
+  .grille { grid-template-columns:1fr; gap:18px; }
+  .lecteur-barre { flex-wrap:wrap; padding:10px 14px; }
+  .lb-titre { font-size:14px; }
+  .lb-actions a span { display:none; }
+  .pied-in { flex-direction:column; text-align:center; }
+}
+
+@media print {
+  .entete, .pied, .fil, .lecteur-barre { display:none !important; }
+  body { background:#fff; }
+}

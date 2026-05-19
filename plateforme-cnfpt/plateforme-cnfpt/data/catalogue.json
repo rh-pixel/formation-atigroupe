@@ -1,0 +1,127 @@
+{
+  "_aide": "Ce fichier pilote TOUTE la plateforme. Pour ajouter une formation : copiez un bloc dans 'formations'. Pour ajouter un module : ajoutez une ligne dans 'modules'. Pour ajouter un quiz : ajoutez une ligne dans 'quiz'. Aucune autre modification n'est nécessaire. Respectez bien les virgules et les guillemets.",
+
+  "organisme": {
+    "nom": "ATIGROUPE",
+    "accroche": "Centre de formation",
+    "pied": "ATIGROUPE — 6F place Émile Zola, 97320 Saint-Laurent-du-Maroni — rh@atigroupe.fr",
+    "contactEmail": "rh@atigroupe.fr"
+  },
+
+  "formations": [
+    {
+      "id": "initiation-informatique",
+      "titre": "Initiation aux outils informatiques et numériques",
+      "client": "CNFPT — Délégation Guyane",
+      "niveau": "Débutant",
+      "resume": "Acquérir les bases de l'informatique, de Windows, d'Internet, de la messagerie et des outils bureautiques (Word, Excel, PowerPoint).",
+      "couleur": "#0C447C",
+      "dossier": "formations/initiation-informatique",
+      "modules": [
+        {
+          "id": "m1",
+          "titre": "Module 1 — Les bases de l'informatique",
+          "resume": "Vocabulaire, matériel, système d'exploitation, premiers gestes.",
+          "fichier": "formations/initiation-informatique/supports/module-1.html"
+        },
+        {
+          "id": "m2",
+          "titre": "Module 2 — L'utilisation de Windows",
+          "resume": "Bureau, fenêtres, fichiers et dossiers, paramètres essentiels.",
+          "fichier": "formations/initiation-informatique/supports/module-2.html"
+        },
+        {
+          "id": "m3",
+          "titre": "Module 3 — La navigation sur Internet",
+          "resume": "Navigateur, recherche, sites de confiance, sécurité de base.",
+          "fichier": "formations/initiation-informatique/supports/module-3.html"
+        },
+        {
+          "id": "m4",
+          "titre": "Module 4 — La messagerie électronique",
+          "resume": "Envoyer, recevoir, organiser ses courriels, pièces jointes.",
+          "fichier": "formations/initiation-informatique/supports/module-4.html"
+        },
+        {
+          "id": "m5",
+          "titre": "Module 5 — Word : le traitement de texte",
+          "resume": "Saisir, mettre en forme, enregistrer et imprimer un document.",
+          "fichier": "formations/initiation-informatique/supports/module-5.html"
+        },
+        {
+          "id": "m6",
+          "titre": "Module 6 — Excel : le tableur",
+          "resume": "Cellules, calculs simples, mise en forme d'un tableau.",
+          "fichier": "formations/initiation-informatique/supports/module-6.html"
+        },
+        {
+          "id": "m7",
+          "titre": "Module 7 — PowerPoint : les présentations",
+          "resume": "Créer des diapositives, thèmes, diaporama.",
+          "fichier": "formations/initiation-informatique/supports/module-7.html"
+        },
+        {
+          "id": "m8",
+          "titre": "Module 8 — Mot de passe oublié",
+          "resume": "Récupérer et réinitialiser un mot de passe en toute autonomie.",
+          "fichier": "formations/initiation-informatique/supports/module-8.html"
+        }
+      ],
+      "quiz": [
+  {
+    "id": "q1",
+    "moduleId": "m1",
+    "titre": "Quiz Module 1 — Découverte de l'ordinateur",
+    "resume": "Quiz interactif sur les bases de l'ordinateur, le matériel et les premiers usages.",
+    "fichier": "formations/initiation-informatique/quiz/CNFPT_Quiz_Module_1_Decouverte_Ordinateur.html"
+  },
+  {
+    "id": "q2",
+    "moduleId": "m2",
+    "titre": "Quiz Module 2 — Windows",
+    "resume": "Quiz interactif sur l'utilisation de Windows, du bureau, des fenêtres, fichiers et dossiers.",
+    "fichier": "formations/initiation-informatique/quiz/CNFPT_Quiz_Module_2_Windows.html"
+  },
+  {
+    "id": "q3",
+    "moduleId": "m3",
+    "titre": "Quiz Module 3 — Internet",
+    "resume": "Quiz interactif sur la navigation web, la recherche en ligne et les bonnes pratiques.",
+    "fichier": "formations/initiation-informatique/quiz/CNFPT_Quiz_Module_3_Internet.html"
+  },
+  {
+    "id": "q4",
+    "moduleId": "m4",
+    "titre": "Quiz Module 4 — Messagerie",
+    "resume": "Quiz interactif sur l'utilisation de la messagerie électronique et des pièces jointes.",
+    "fichier": "formations/initiation-informatique/quiz/CNFPT_Quiz_Module_4_Messagerie.html"
+  },
+  {
+    "id": "q5",
+    "moduleId": "m5",
+    "titre": "Quiz Module 5 — Word",
+    "resume": "Quiz interactif sur les bases du traitement de texte avec Word.",
+    "fichier": "formations/initiation-informatique/quiz/CNFPT_Quiz_Module_5_Word.html"
+  },
+  {
+    "id": "q6",
+    "moduleId": "m6",
+    "titre": "Quiz Module 6 — Excel",
+    "resume": "Quiz interactif sur les bases du tableur, les cellules, les calculs simples et les tableaux.",
+    "fichier": "formations/initiation-informatique/quiz/CNFPT_Quiz_Module_6_Excel.html"
+  },
+  {
+    "id": "q7",
+    "moduleId": "m7",
+    "titre": "Quiz Module 7 — PowerPoint",
+    "resume": "Quiz interactif sur la création de présentations et l'utilisation de PowerPoint.",
+    "fichier": "formations/initiation-informatique/quiz/CNFPT_Quiz_Module_7_PowerPoint.html"
+  },
+  {
+    "id": "q8",
+    "moduleId": "m8",
+    "titre": "Quiz Module 8 — Mot de passe oublié",
+    "resume": "Quiz interactif sur la récupération et la réinitialisation d'un mot de passe.",
+    "fichier": "formations/initiation-informatique/quiz/CNFPT_Quiz_Module_8_Mot_de_passe_oublie.html"
+  }
+]
