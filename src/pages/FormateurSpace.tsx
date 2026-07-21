@@ -154,7 +154,7 @@ function Overview({
                 </div>
                 {t.pdf_url && (
                   <a
-                    href={t.pdf_url}
+                    href={`${import.meta.env.BASE_URL.replace(/\/$/, '')}${t.pdf_url}`}
                     target="_blank"
                     rel="noreferrer"
                     className="mt-3 inline-flex items-center gap-1.5 text-xs font-medium text-slate-500 hover:text-indigo-600 transition"
