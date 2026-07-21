@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="ATI Groupe Hub — l'espace de formation des stagiaires : modules, exercices, quiz et suivi de progression.">
+  <meta name="theme-color" content="#2563eb">
+  <title>ATI Groupe Hub — Espace de formation</title>
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- Écran de chargement -->
+  <div id="chargement">
+    <div class="spinner" role="status" aria-label="Chargement"></div>
+    <p style="color:var(--texte-2);font-size:14px;">Chargement de votre espace…</p>
+  </div>
+
+  <!-- Écran de connexion -->
+  <div id="connexion" class="cache">
+    <div class="carte-connexion">
+      <div class="logo-rond" aria-hidden="true">ATI</div>
+      <h1>ATI Groupe Hub</h1>
+      <p class="sous-titre">Votre espace de formation personnel</p>
+      <form id="form-connexion" novalidate>
+        <div id="connexion-erreur" class="msg-erreur cache" role="alert"></div>
+        <div class="champ">
+          <label for="ch-prenom">Prénom</label>
+          <input id="ch-prenom" name="prenom" autocomplete="given-name" required placeholder="Ex. : Marie">
+        </div>
+        <div class="champ">
+          <label for="ch-nom">Nom</label>
+          <input id="ch-nom" name="nom" autocomplete="family-name" required placeholder="Ex. : Dupont">
+        </div>
+        <div class="champ">
+          <label for="ch-code">Code stagiaire</label>
+          <input id="ch-code" name="code" autocomplete="off" autocapitalize="characters" required placeholder="Ex. : ATI-1001">
+        </div>
+        <button type="submit" class="btn btn-principal btn-large" id="btn-connexion">Se connecter</button>
+      </form>
+      <p class="aide-connexion">Votre code stagiaire vous a été remis par votre formateur.<br>Besoin d'aide ? Contactez le service formation.</p>
+    </div>
+  </div>
+
+  <!-- Application -->
+  <div id="app" class="cache">
+
+    <!-- Navigation latérale (ordinateur) -->
+    <aside class="sidebar">
+      <div class="marque">
+        <div class="logo-rond" aria-hidden="true">ATI</div>
+        <div class="marque-nom">ATI Groupe Hub<small>Espace de formation</small></div>
+      </div>
+      <nav class="nav-liste" aria-label="Navigation principale" id="nav-cote"></nav>
+      <div class="sidebar-pied">
+        <div class="puce-user">
+          <div class="avatar" id="avatar-cote"></div>
+          <div>
+            <div class="puce-user-nom" id="nom-cote"></div>
+            <div class="puce-user-code" id="code-cote"></div>
+          </div>
+        </div>
+        <button class="nav-lien" id="btn-theme" type="button"></button>
+        <button class="nav-lien" id="btn-deconnexion" type="button"></button>
+      </div>
+    </aside>
+
+    <!-- Barre supérieure (mobile) -->
+    <header class="topbar">
+      <div class="marque">
+        <div class="logo-rond" aria-hidden="true">ATI</div>
+        <div class="marque-nom">ATI Groupe Hub</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:4px;">
+        <button class="btn-discret" id="btn-theme-mobile" type="button" aria-label="Changer de thème"></button>
+        <button class="btn-discret" id="btn-deconnexion-mobile" type="button" aria-label="Se déconnecter"></button>
+      </div>
+    </header>
+
+    <main id="vue" tabindex="-1"></main>
+
+    <!-- Navigation basse (mobile) -->
+    <nav class="navbas" aria-label="Navigation principale">
+      <div class="navbas-int" id="nav-bas"></div>
+    </nav>
+  </div>
+
+  <div id="toast" role="status" aria-live="polite"></div>
+
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

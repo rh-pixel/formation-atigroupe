@@ -1,0 +1,24 @@
+# ============================================================
+#  Configuration Netlify — ATI Groupe Hub
+#  Ce fichier est lu automatiquement par Netlify au déploiement.
+#  En général, vous n'avez PAS besoin de le modifier.
+# ============================================================
+
+[build]
+  # Le site est 100 % statique : aucune compilation nécessaire.
+  publish = "."
+
+# En-têtes de sécurité appliqués à toutes les pages
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "SAMEORIGIN"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+# Les données (contenu + stagiaires) ne doivent jamais être mises en
+# cache, pour que les mises à jour soient visibles immédiatement.
+[[headers]]
+  for = "/data/*"
+  [headers.values]
+    Cache-Control = "no-cache, must-revalidate"

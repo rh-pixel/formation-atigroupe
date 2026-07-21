@@ -1,0 +1,508 @@
+{
+  "_aide": "TOUT le contenu de l'application se modifie dans ce fichier, sans toucher au code. Types de questions : 'qcm' (choix multiples, 'bonne' = position de la bonne réponse en partant de 0), 'vraifaux' (bonne = true ou false), 'texte' (réponse à taper, 'reponses' = liste des réponses acceptées). Types de blocs de leçon : 'h' (sous-titre), 'p' (paragraphe), 'liste', 'exemple', 'astuce'.",
+
+  "app": {
+    "nom": "ATI Groupe Hub",
+    "sousTitre": "Votre espace de formation",
+    "pied": "ATI Groupe — Service formation · rh@atigroupe.fr"
+  },
+
+  "positionnement": {
+    "intro": "Ces tests rapides nous aident à connaître votre niveau de départ pour adapter votre parcours. Il n'y a pas de bonne ou de mauvaise note : répondez sans stress et sans aide extérieure.",
+    "tests": [
+      {
+        "id": "pos-francais",
+        "module": "francais",
+        "titre": "Positionnement Français",
+        "description": "12 questions pour évaluer votre niveau en lecture, grammaire et orthographe.",
+        "duree": "≈ 15 min",
+        "niveaux": [
+          { "min": 0,  "label": "Débutant",      "conseil": "Commencez par les leçons dans l'ordre, section par section. Prenez votre temps : chaque leçon est courte." },
+          { "min": 45, "label": "Intermédiaire", "conseil": "Vous avez de bonnes bases. Parcourez les leçons rapidement puis concentrez-vous sur les exercices et les quiz." },
+          { "min": 80, "label": "Avancé",        "conseil": "Très bon niveau ! Allez directement aux quiz pour valider chaque section, et revenez aux leçons seulement si besoin." }
+        ],
+        "questions": [
+          { "type": "qcm", "q": "Quelle phrase est correctement écrite ?", "choix": ["Ils son arrivés en retard.", "Ils sont arrivés en retard.", "Ils sons arrivés en retard."], "bonne": 1, "explication": "« Sont » est le verbe être (ils sont). « Son » indique la possession (son manteau)." },
+          { "type": "qcm", "q": "Complétez : « Elle va ___ la réunion. »", "choix": ["a", "à", "as"], "bonne": 1, "explication": "« À » avec accent est une préposition. « A » sans accent est le verbe avoir (il a)." },
+          { "type": "vraifaux", "q": "« Manger » est un verbe du premier groupe.", "bonne": true, "explication": "Les verbes en -er (sauf aller) appartiennent au premier groupe." },
+          { "type": "qcm", "q": "Quel est le pluriel de « un cheval » ?", "choix": ["des chevals", "des chevaux", "des chevaus"], "bonne": 1, "explication": "La plupart des mots en -al font leur pluriel en -aux : cheval → chevaux." },
+          { "type": "qcm", "q": "Complétez : « ___ voiture est en panne. »", "choix": ["Ces", "Ses", "C'est"], "bonne": 1, "explication": "« Ses » indique la possession (sa voiture à lui/elle). « Ces » désigne des choses que l'on montre." },
+          { "type": "qcm", "q": "Dans la phrase « Le technicien répare la machine », qui fait l'action ?", "choix": ["La machine", "Le technicien", "Personne"], "bonne": 1, "explication": "Le sujet de la phrase est « le technicien » : c'est lui qui fait l'action de réparer." },
+          { "type": "qcm", "q": "Complétez au passé composé : « Hier, nous ___ terminé le chantier. »", "choix": ["avons", "avont", "avez"], "bonne": 0, "explication": "Avec « nous », le verbe avoir s'écrit « avons » : nous avons terminé." },
+          { "type": "vraifaux", "q": "Une phrase commence toujours par une majuscule et se termine par un point.", "bonne": true, "explication": "C'est la règle de base de la ponctuation." },
+          { "type": "qcm", "q": "Quel mot est un synonyme de « rapide » ?", "choix": ["lent", "vif", "lourd"], "bonne": 1, "explication": "« Vif » veut dire rapide. Un synonyme est un mot qui a le même sens." },
+          { "type": "qcm", "q": "Complétez : « Les documents que j'ai ___ sont sur le bureau. »", "choix": ["imprimé", "imprimés", "imprimer"], "bonne": 1, "explication": "Avec l'auxiliaire avoir, le participe s'accorde avec le complément placé avant : les documents... imprimés." },
+          { "type": "qcm", "q": "Quelle formule convient pour terminer un e-mail professionnel ?", "choix": ["À plus !", "Cordialement", "Bisous"], "bonne": 1, "explication": "« Cordialement » est la formule de politesse standard dans un e-mail professionnel." },
+          { "type": "texte", "q": "Écrivez en toutes lettres le contraire de « ouvert ».", "reponses": ["fermé", "ferme", "fermee", "fermée"], "explication": "Le contraire (antonyme) de « ouvert » est « fermé »." }
+        ]
+      },
+      {
+        "id": "pos-maths",
+        "module": "maths",
+        "titre": "Positionnement Mathématiques",
+        "description": "10 questions pour évaluer votre niveau en calcul, pourcentages et mesures.",
+        "duree": "≈ 12 min",
+        "niveaux": [
+          { "min": 0,  "label": "Débutant",      "conseil": "Suivez les leçons dans l'ordre et refaites les exercices jusqu'à être à l'aise avec les calculs de base." },
+          { "min": 45, "label": "Intermédiaire", "conseil": "Bonnes bases en calcul. Travaillez surtout les pourcentages et les conversions, souvent utiles au travail." },
+          { "min": 80, "label": "Avancé",        "conseil": "Très bon niveau ! Validez chaque section directement avec les quiz." }
+        ],
+        "questions": [
+          { "type": "qcm", "q": "Combien font 7 × 8 ?", "choix": ["54", "56", "64"], "bonne": 1, "explication": "7 × 8 = 56." },
+          { "type": "texte", "q": "Calculez : 125 + 87 = ?", "reponses": ["212"], "explication": "125 + 87 = 212." },
+          { "type": "qcm", "q": "Combien font 200 − 45 ?", "choix": ["145", "155", "165"], "bonne": 1, "explication": "200 − 45 = 155." },
+          { "type": "qcm", "q": "Que représente 50 % d'une somme ?", "choix": ["Le quart", "La moitié", "Le double"], "bonne": 1, "explication": "50 % = 50/100 = la moitié." },
+          { "type": "texte", "q": "Combien font 10 % de 250 € ? (écrivez juste le nombre)", "reponses": ["25", "25€", "25 €", "25 euros"], "explication": "10 % de 250 = 250 ÷ 10 = 25 €." },
+          { "type": "qcm", "q": "1 mètre, c'est combien de centimètres ?", "choix": ["10 cm", "100 cm", "1000 cm"], "bonne": 1, "explication": "1 m = 100 cm." },
+          { "type": "qcm", "q": "Un colis pèse 1,5 kg. Cela fait combien de grammes ?", "choix": ["150 g", "1500 g", "15 000 g"], "bonne": 1, "explication": "1 kg = 1000 g, donc 1,5 kg = 1500 g." },
+          { "type": "vraifaux", "q": "Un quart d'heure dure 25 minutes.", "bonne": false, "explication": "Un quart d'heure = 60 ÷ 4 = 15 minutes." },
+          { "type": "qcm", "q": "Trois collègues se partagent équitablement 36 dossiers. Combien chacun en traite-t-il ?", "choix": ["10", "12", "13"], "bonne": 1, "explication": "36 ÷ 3 = 12 dossiers chacun." },
+          { "type": "qcm", "q": "Un article coûte 80 €. Il est soldé à −25 %. Quel est le nouveau prix ?", "choix": ["55 €", "60 €", "65 €"], "bonne": 1, "explication": "25 % de 80 = 20. Prix soldé : 80 − 20 = 60 €." }
+        ]
+      }
+    ]
+  },
+
+  "modules": [
+    {
+      "id": "francais",
+      "titre": "Français",
+      "icone": "📖",
+      "couleur": "#2563eb",
+      "description": "Lire, écrire et communiquer avec assurance dans la vie professionnelle.",
+      "sections": [
+        {
+          "id": "lecture",
+          "titre": "Lecture et compréhension",
+          "description": "Comprendre un texte, une consigne ou un document de travail.",
+          "elements": [
+            {
+              "type": "lecon", "id": "fr-lecture-l1", "titre": "Bien comprendre ce qu'on lit", "duree": "10 min",
+              "contenu": [
+                { "t": "p", "x": "Au travail comme dans la vie quotidienne, on lit sans arrêt : consignes, plannings, e-mails, notices… Bien comprendre un texte, cela s'apprend, avec quelques réflexes simples." },
+                { "t": "h", "x": "Avant de lire" },
+                { "t": "liste", "x": ["Regardez le titre : il annonce le sujet du texte.", "Repérez qui écrit et à qui le texte s'adresse.", "Demandez-vous pourquoi vous lisez : chercher une information précise ? tout comprendre ?"] },
+                { "t": "h", "x": "Pendant la lecture" },
+                { "t": "liste", "x": ["Lisez une première fois sans vous arrêter, pour avoir une idée générale.", "Relisez plus lentement et repérez les mots importants : dates, lieux, quantités, actions à faire.", "Si un mot est inconnu, continuez : le sens de la phrase aide souvent à le deviner."] },
+                { "t": "exemple", "x": "Consigne : « Avant toute intervention, couper l'alimentation électrique et prévenir le responsable. » → Deux actions à faire, dans l'ordre : 1) couper le courant, 2) prévenir le responsable." },
+                { "t": "h", "x": "Après la lecture" },
+                { "t": "p", "x": "Reformulez le texte dans votre tête avec vos propres mots : « En résumé, on me demande de… ». Si vous n'y arrivez pas, relisez le passage qui bloque." },
+                { "t": "astuce", "x": "Pour une consigne de travail, cherchez toujours les réponses à trois questions : QUOI faire ? QUAND ? COMMENT ?" }
+              ]
+            },
+            {
+              "type": "exercice", "id": "fr-lecture-e1", "titre": "Exercice : lire une consigne",
+              "consigne": "Lisez ce message puis répondez aux questions. La correction s'affiche après chaque réponse.",
+              "contexte": "Message affiché dans l'atelier : « À partir de lundi 3 mars, l'entrepôt ouvrira à 7 h 30 au lieu de 8 h. Les équipes du matin devront badger avant 7 h 45. En cas de retard, prévenir M. Costa au 06 12 34 56 78. »",
+              "questions": [
+                { "type": "qcm", "q": "À partir de quand l'horaire change-t-il ?", "choix": ["Immédiatement", "Lundi 3 mars", "Le mois prochain"], "bonne": 1, "explication": "Le message précise « à partir de lundi 3 mars »." },
+                { "type": "qcm", "q": "À quelle heure l'entrepôt ouvrira-t-il désormais ?", "choix": ["7 h 30", "7 h 45", "8 h"], "bonne": 0, "explication": "Le nouvel horaire d'ouverture est 7 h 30 ; 8 h est l'ancien horaire." },
+                { "type": "qcm", "q": "Avant quelle heure faut-il badger ?", "choix": ["7 h 30", "7 h 45", "8 h"], "bonne": 1, "explication": "« Les équipes du matin devront badger avant 7 h 45. »" },
+                { "type": "qcm", "q": "Que faire en cas de retard ?", "choix": ["Rien de particulier", "Prévenir M. Costa par téléphone", "Envoyer un e-mail au service RH"], "bonne": 1, "explication": "Le message demande de prévenir M. Costa au numéro indiqué." }
+              ]
+            },
+            {
+              "type": "quiz", "id": "fr-lecture-q1", "titre": "Quiz : compréhension",
+              "questions": [
+                { "type": "qcm", "q": "Que faut-il regarder en premier pour savoir de quoi parle un texte ?", "choix": ["La dernière phrase", "Le titre", "Le nombre de pages"], "bonne": 1, "explication": "Le titre annonce le sujet du texte." },
+                { "type": "vraifaux", "q": "Quand on rencontre un mot inconnu, il faut toujours s'arrêter immédiatement.", "bonne": false, "explication": "Mieux vaut continuer : le contexte de la phrase aide souvent à deviner le sens." },
+                { "type": "qcm", "q": "Pour vérifier qu'on a compris un texte, le plus efficace est de :", "choix": ["le relire dix fois", "le reformuler avec ses propres mots", "le recopier"], "bonne": 1, "explication": "Reformuler avec ses mots est le meilleur test de compréhension." },
+                { "type": "qcm", "q": "Dans une consigne de travail, quelles informations faut-il repérer en priorité ?", "choix": ["Quoi, quand, comment", "La longueur du texte", "Le nom de l'imprimeur"], "bonne": 0, "explication": "QUOI faire, QUAND et COMMENT : les trois questions clés." },
+                { "type": "qcm", "q": "« Le port du casque est obligatoire dans la zone B. » Cela signifie :", "choix": ["Le casque est conseillé", "Le casque est interdit", "On doit porter le casque dans la zone B"], "bonne": 2, "explication": "« Obligatoire » = on doit le faire, ce n'est pas un choix." }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "grammaire",
+          "titre": "Grammaire et conjugaison",
+          "description": "Construire des phrases correctes et conjuguer les verbes courants.",
+          "elements": [
+            {
+              "type": "lecon", "id": "fr-gram-l1", "titre": "La phrase et les temps essentiels", "duree": "12 min",
+              "contenu": [
+                { "t": "h", "x": "La phrase de base" },
+                { "t": "p", "x": "Une phrase simple contient un sujet (qui fait l'action), un verbe (l'action) et souvent un complément (des précisions). Elle commence par une majuscule et se termine par un point." },
+                { "t": "exemple", "x": "« Le livreur (sujet) dépose (verbe) les colis à l'accueil (complément). »" },
+                { "t": "h", "x": "Le présent" },
+                { "t": "p", "x": "Le présent décrit ce qui se passe maintenant ou ce qui est habituel. Pour les verbes en -er : je travaille, tu travailles, il/elle travaille, nous travaillons, vous travaillez, ils/elles travaillent." },
+                { "t": "h", "x": "Le passé composé" },
+                { "t": "p", "x": "Le passé composé décrit une action terminée. Il se forme avec avoir ou être au présent + le participe passé : j'ai terminé, tu as reçu, elle est arrivée, nous avons signé." },
+                { "t": "exemple", "x": "« Hier, j'ai vérifié le stock et j'ai signalé deux articles manquants. »" },
+                { "t": "h", "x": "Le futur" },
+                { "t": "p", "x": "Le futur décrit ce qui va se passer : je terminerai, tu enverras, il commencera, nous livrerons, vous recevrez, ils installeront." },
+                { "t": "astuce", "x": "Pour trouver le sujet, posez la question « Qui est-ce qui… ? » avant le verbe. « Qui est-ce qui dépose les colis ? » → le livreur." }
+              ]
+            },
+            {
+              "type": "exercice", "id": "fr-gram-e1", "titre": "Exercice : conjuguer au bon temps",
+              "consigne": "Choisissez ou écrivez la forme correcte du verbe.",
+              "questions": [
+                { "type": "qcm", "q": "Tous les matins, je ___ les e-mails de l'équipe.", "choix": ["lit", "lis", "lisent"], "bonne": 1, "explication": "Avec « je », le verbe lire s'écrit « lis » au présent." },
+                { "type": "qcm", "q": "Hier, nous ___ la nouvelle machine.", "choix": ["installons", "avons installé", "installerons"], "bonne": 1, "explication": "« Hier » indique le passé → passé composé : nous avons installé." },
+                { "type": "qcm", "q": "Demain, vous ___ le planning de la semaine.", "choix": ["recevez", "avez reçu", "recevrez"], "bonne": 2, "explication": "« Demain » indique le futur → vous recevrez." },
+                { "type": "texte", "q": "Écrivez le verbe « finir » avec « nous » au présent : « Nous ___ à 17 h. »", "reponses": ["finissons"], "explication": "Nous finissons : les verbes du 2e groupe prennent -issons avec nous." }
+              ]
+            },
+            {
+              "type": "quiz", "id": "fr-gram-q1", "titre": "Quiz : grammaire et conjugaison",
+              "questions": [
+                { "type": "qcm", "q": "Dans « L'équipe termine le chantier », le sujet est :", "choix": ["le chantier", "termine", "l'équipe"], "bonne": 2, "explication": "Qui est-ce qui termine ? L'équipe → c'est le sujet." },
+                { "type": "qcm", "q": "Quelle phrase est au passé composé ?", "choix": ["Je signe le contrat.", "J'ai signé le contrat.", "Je signerai le contrat."], "bonne": 1, "explication": "Passé composé = avoir/être au présent + participe passé : j'ai signé." },
+                { "type": "qcm", "q": "Complétez : « Ils ___ en réunion tous les lundis. »", "choix": ["est", "sont", "êtes"], "bonne": 1, "explication": "Avec « ils », le verbe être s'écrit « sont »." },
+                { "type": "vraifaux", "q": "« Nous travaillons » est correctement conjugué au présent.", "bonne": true, "explication": "Avec « nous », les verbes en -er prennent la terminaison -ons." },
+                { "type": "qcm", "q": "Complétez : « Demain, elle ___ les clients. »", "choix": ["rappellera", "a rappelé", "rappelle hier"], "bonne": 0, "explication": "« Demain » demande le futur : elle rappellera." }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "orthographe",
+          "titre": "Orthographe",
+          "description": "Éviter les fautes les plus fréquentes, notamment les homophones.",
+          "elements": [
+            {
+              "type": "lecon", "id": "fr-ortho-l1", "titre": "Les homophones : a/à, et/est, son/sont…", "duree": "12 min",
+              "contenu": [
+                { "t": "p", "x": "Les homophones sont des mots qui se prononcent pareil mais s'écrivent différemment. Ce sont les fautes les plus courantes — et les plus faciles à éviter avec les bonnes astuces." },
+                { "t": "h", "x": "a / à" },
+                { "t": "p", "x": "« a » sans accent = le verbe avoir. Astuce : remplacez par « avait ». Si la phrase reste correcte, écrivez « a ». Sinon, écrivez « à »." },
+                { "t": "exemple", "x": "« Il a (avait ✔) rendez-vous à (avait ✘) 14 h. »" },
+                { "t": "h", "x": "et / est" },
+                { "t": "p", "x": "« est » = le verbe être (remplaçable par « était »). « et » = et puis, pour relier deux éléments." },
+                { "t": "exemple", "x": "« Le dossier est (était ✔) complet et (et puis ✔) signé. »" },
+                { "t": "h", "x": "son / sont" },
+                { "t": "p", "x": "« sont » = le verbe être (remplaçable par « étaient »). « son » = à lui, à elle (son badge, son casier)." },
+                { "t": "h", "x": "ces / ses / c'est" },
+                { "t": "liste", "x": ["« ses » = les siens (il montre ses papiers → les siens).", "« ces » = ceux qu'on montre (regardez ces cartons → ceux-là).", "« c'est » = cela est (c'est important → cela est important)."] },
+                { "t": "h", "x": "ou / où" },
+                { "t": "p", "x": "« ou » = un choix (remplaçable par « ou bien »). « où » avec accent = un lieu (l'endroit où je travaille)." },
+                { "t": "astuce", "x": "En cas de doute, testez toujours le remplacement : avait, était, étaient, ou bien… Ce réflexe élimine la majorité des fautes." }
+              ]
+            },
+            {
+              "type": "exercice", "id": "fr-ortho-e1", "titre": "Exercice : choisir la bonne orthographe",
+              "consigne": "Choisissez le mot correct dans chaque phrase.",
+              "questions": [
+                { "type": "qcm", "q": "« Le chef d'équipe ___ validé les congés. »", "choix": ["a", "à"], "bonne": 0, "explication": "On peut dire « avait validé » → verbe avoir, sans accent." },
+                { "type": "qcm", "q": "« Les casques ___ rangés dans le vestiaire. »", "choix": ["son", "sont"], "bonne": 1, "explication": "On peut dire « étaient rangés » → verbe être : sont." },
+                { "type": "qcm", "q": "« Le bureau ___ fermé le samedi ___ le dimanche. »", "choix": ["est … et", "et … est", "est … est"], "bonne": 0, "explication": "« Le bureau était fermé » → est. « le samedi et puis le dimanche » → et." },
+                { "type": "qcm", "q": "« Dites-moi ___ vous avez rangé les clés. »", "choix": ["ou", "où"], "bonne": 1, "explication": "Il s'agit d'un lieu → « où » avec accent." }
+              ]
+            },
+            {
+              "type": "quiz", "id": "fr-ortho-q1", "titre": "Quiz : orthographe",
+              "questions": [
+                { "type": "qcm", "q": "« Elle ___ terminé ___ 16 h. »", "choix": ["a … à", "à … a", "a … a"], "bonne": 0, "explication": "« avait terminé » → a. « à 16 h » (heure) → à." },
+                { "type": "qcm", "q": "« ___ dossiers ne sont pas les miens, ce sont ___ dossiers. »", "choix": ["Ses … ces", "Ces … ses", "Ces … c'est"], "bonne": 1, "explication": "« Ces » = ceux qu'on montre ; « ses » = les siens." },
+                { "type": "vraifaux", "q": "Dans « Ils sont en formation », « sont » s'écrit bien s-o-n-t.", "bonne": true, "explication": "On peut dire « ils étaient en formation » → verbe être." },
+                { "type": "qcm", "q": "« Tu préfères l'équipe du matin ___ celle du soir ? »", "choix": ["ou", "où"], "bonne": 0, "explication": "C'est un choix : « ou bien celle du soir » → ou sans accent." },
+                { "type": "texte", "q": "Complétez avec le bon mot : « ___ une bonne nouvelle ! » (cela est)", "reponses": ["c'est", "cest", "c est"], "explication": "« C'est » = cela est." }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "expression",
+          "titre": "Expression écrite",
+          "description": "Rédiger un message clair, notamment un e-mail professionnel.",
+          "elements": [
+            {
+              "type": "lecon", "id": "fr-expr-l1", "titre": "Écrire un e-mail professionnel", "duree": "10 min",
+              "contenu": [
+                { "t": "p", "x": "Un bon e-mail professionnel est court, poli et clair. Le lecteur doit comprendre en quelques secondes ce que vous voulez." },
+                { "t": "h", "x": "La structure en 5 parties" },
+                { "t": "liste", "x": ["Objet : le sujet en quelques mots (ex. « Demande de congés — semaine 32 »).", "Salutation : « Bonjour Madame, » / « Bonjour Monsieur, ».", "Message : une idée par phrase, des phrases courtes.", "Formule de politesse : « Cordialement, » convient presque toujours.", "Signature : votre prénom, nom et si utile votre service."] },
+                { "t": "exemple", "x": "Objet : Absence médicale — jeudi 12 juin\n\nBonjour Madame Dupuis,\n\nJe serai absent jeudi 12 juin pour un rendez-vous médical. Je vous transmettrai le justificatif dès mon retour.\n\nCordialement,\nKarim Martin — Équipe logistique" },
+                { "t": "h", "x": "Les pièges à éviter" },
+                { "t": "liste", "x": ["Le langage SMS (« slt », « stp ») : à réserver aux proches.", "TOUT EN MAJUSCULES : donne l'impression de crier.", "Les messages trop longs : allez à l'essentiel.", "Envoyer sans se relire : relisez toujours une fois avant d'envoyer."] },
+                { "t": "astuce", "x": "Avant d'envoyer, posez-vous la question : « Si je recevais ce message, est-ce que je saurais quoi faire ? »" }
+              ]
+            },
+            {
+              "type": "exercice", "id": "fr-expr-e1", "titre": "Exercice : améliorer un message",
+              "consigne": "Choisissez la meilleure formulation professionnelle.",
+              "questions": [
+                { "type": "qcm", "q": "Quel objet d'e-mail est le plus efficace ?", "choix": ["(aucun objet)", "Question", "Demande de congés — 4 au 8 août"], "bonne": 2, "explication": "Un objet précis permet au lecteur de comprendre immédiatement le sujet." },
+                { "type": "qcm", "q": "Quelle salutation convient pour écrire à un responsable ?", "choix": ["Salut !", "Bonjour Monsieur,", "Coucou"], "bonne": 1, "explication": "« Bonjour Monsieur / Madame » est la salutation professionnelle standard." },
+                { "type": "qcm", "q": "Quelle phrase est la plus claire ?", "choix": ["Je vous écris parce que voilà, en fait, il se trouve que je serai pas là.", "Je serai absent lundi 5 mai pour raison médicale.", "absent lundi"], "bonne": 1, "explication": "Une phrase courte et complète : quoi, quand, pourquoi." },
+                { "type": "qcm", "q": "Comment terminer le message ?", "choix": ["@+", "Cordialement, suivi de votre nom", "Rien du tout"], "bonne": 1, "explication": "Formule de politesse + signature : le lecteur sait qui écrit." }
+              ]
+            },
+            {
+              "type": "quiz", "id": "fr-expr-q1", "titre": "Quiz : expression écrite",
+              "questions": [
+                { "type": "qcm", "q": "Dans quel ordre construit-on un e-mail professionnel ?", "choix": ["Signature, message, objet", "Objet, salutation, message, politesse, signature", "Message seul"], "bonne": 1, "explication": "Objet → salutation → message → formule de politesse → signature." },
+                { "type": "vraifaux", "q": "Écrire en langage SMS est acceptable dans un e-mail professionnel.", "bonne": false, "explication": "Le langage SMS est réservé aux échanges privés." },
+                { "type": "vraifaux", "q": "Il faut se relire avant d'envoyer un message professionnel.", "bonne": true, "explication": "La relecture évite les fautes et les oublis." },
+                { "type": "qcm", "q": "Un message professionnel efficace est :", "choix": ["long et détaillé au maximum", "court, poli et précis", "écrit en majuscules pour être bien vu"], "bonne": 1, "explication": "Court, poli, précis : le lecteur comprend vite et peut agir." },
+                { "type": "qcm", "q": "Quelle formule de politesse convient le mieux ?", "choix": ["Bisous", "Cordialement", "Ciao"], "bonne": 1, "explication": "« Cordialement » est la formule standard qui convient dans presque tous les cas." }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "maths",
+      "titre": "Mathématiques",
+      "icone": "🔢",
+      "couleur": "#0d9488",
+      "description": "Maîtriser les calculs utiles au quotidien et au travail.",
+      "sections": [
+        {
+          "id": "operations",
+          "titre": "Les quatre opérations",
+          "description": "Additionner, soustraire, multiplier, diviser — avec méthode.",
+          "elements": [
+            {
+              "type": "lecon", "id": "ma-op-l1", "titre": "Calculer vite et juste", "duree": "10 min",
+              "contenu": [
+                { "t": "h", "x": "Addition et soustraction" },
+                { "t": "p", "x": "Pour calculer de tête, décomposez les nombres : 125 + 87 → 125 + 80 = 205, puis 205 + 7 = 212. Pour soustraire : 200 − 45 → 200 − 40 = 160, puis 160 − 5 = 155." },
+                { "t": "h", "x": "Multiplication" },
+                { "t": "p", "x": "Multiplier, c'est additionner plusieurs fois la même quantité : 4 boîtes de 6 pièces = 4 × 6 = 24 pièces. Astuce : ×10 → on ajoute un zéro (23 × 10 = 230) ; ×5 → on multiplie par 10 puis on divise par 2 (14 × 5 = 140 ÷ 2 = 70)." },
+                { "t": "h", "x": "Division" },
+                { "t": "p", "x": "Diviser, c'est partager en parts égales : 36 dossiers pour 3 personnes = 36 ÷ 3 = 12 dossiers chacun. La division est l'inverse de la multiplication : 36 ÷ 3 = 12 parce que 12 × 3 = 36." },
+                { "t": "exemple", "x": "Commande : 5 cartons de 12 bouteilles, on en a déjà livré 20. Reste à livrer : 5 × 12 = 60, puis 60 − 20 = 40 bouteilles." },
+                { "t": "astuce", "x": "Vérifiez toujours un calcul en le refaisant « dans l'autre sens » : 155 + 45 = 200 confirme que 200 − 45 = 155." }
+              ]
+            },
+            {
+              "type": "exercice", "id": "ma-op-e1", "titre": "Exercice : calculs du quotidien",
+              "consigne": "Calculez de tête ou sur papier, puis répondez.",
+              "questions": [
+                { "type": "texte", "q": "348 + 155 = ?", "reponses": ["503"], "explication": "348 + 150 = 498, puis 498 + 5 = 503." },
+                { "type": "texte", "q": "500 − 137 = ?", "reponses": ["363"], "explication": "500 − 100 = 400, 400 − 37 = 363." },
+                { "type": "qcm", "q": "Un carton contient 24 pièces. Combien de pièces dans 6 cartons ?", "choix": ["120", "144", "148"], "bonne": 1, "explication": "24 × 6 = 144 pièces." },
+                { "type": "qcm", "q": "On répartit 84 colis sur 4 palettes identiques. Combien de colis par palette ?", "choix": ["20", "21", "24"], "bonne": 1, "explication": "84 ÷ 4 = 21 colis par palette." }
+              ]
+            },
+            {
+              "type": "quiz", "id": "ma-op-q1", "titre": "Quiz : les quatre opérations",
+              "questions": [
+                { "type": "texte", "q": "267 + 133 = ?", "reponses": ["400"], "explication": "267 + 133 = 400." },
+                { "type": "qcm", "q": "9 × 7 = ?", "choix": ["56", "63", "72"], "bonne": 1, "explication": "9 × 7 = 63." },
+                { "type": "qcm", "q": "1000 − 250 = ?", "choix": ["650", "700", "750"], "bonne": 2, "explication": "1000 − 250 = 750." },
+                { "type": "qcm", "q": "Un lot de 96 pièces est réparti en 8 sachets égaux. Combien par sachet ?", "choix": ["10", "12", "14"], "bonne": 1, "explication": "96 ÷ 8 = 12." },
+                { "type": "qcm", "q": "Quelle opération vérifie que 84 ÷ 4 = 21 ?", "choix": ["21 + 4", "21 × 4", "21 − 4"], "bonne": 1, "explication": "21 × 4 = 84 : la multiplication est l'inverse de la division." }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "pourcentages",
+          "titre": "Pourcentages et proportions",
+          "description": "Remises, augmentations, TVA : comprendre et calculer les pourcentages.",
+          "elements": [
+            {
+              "type": "lecon", "id": "ma-pc-l1", "titre": "Les pourcentages sans stress", "duree": "12 min",
+              "contenu": [
+                { "t": "p", "x": "Un pourcentage est une part sur 100. « 20 % des salariés » signifie 20 salariés sur 100. Les pourcentages servent partout : soldes, TVA, augmentations, statistiques." },
+                { "t": "h", "x": "Les repères à connaître par cœur" },
+                { "t": "liste", "x": ["50 % = la moitié (÷ 2)", "25 % = le quart (÷ 4)", "10 % = un dixième (÷ 10)", "100 % = la totalité"] },
+                { "t": "h", "x": "Calculer un pourcentage" },
+                { "t": "p", "x": "10 % est la clé de tout : on divise par 10, puis on ajuste. 10 % de 250 € = 25 €. Donc 20 % de 250 € = 25 × 2 = 50 €. Et 5 % de 250 € = 25 ÷ 2 = 12,50 €." },
+                { "t": "exemple", "x": "Remise de 30 % sur un article à 90 € : 10 % de 90 = 9 €, donc 30 % = 27 €. Prix final : 90 − 27 = 63 €." },
+                { "t": "h", "x": "Augmentation" },
+                { "t": "exemple", "x": "Un loyer de 600 € augmente de 5 % : 10 % de 600 = 60, donc 5 % = 30 €. Nouveau loyer : 600 + 30 = 630 €." },
+                { "t": "astuce", "x": "Réflexe : partez toujours de 10 % (divisez par 10), puis multipliez ou divisez pour obtenir le pourcentage voulu." }
+              ]
+            },
+            {
+              "type": "exercice", "id": "ma-pc-e1", "titre": "Exercice : remises et augmentations",
+              "consigne": "Utilisez la méthode des 10 % pour répondre.",
+              "questions": [
+                { "type": "texte", "q": "Combien font 10 % de 340 € ? (juste le nombre)", "reponses": ["34"], "explication": "340 ÷ 10 = 34 €." },
+                { "type": "qcm", "q": "Combien font 20 % de 150 € ?", "choix": ["15 €", "30 €", "45 €"], "bonne": 1, "explication": "10 % de 150 = 15, donc 20 % = 30 €." },
+                { "type": "qcm", "q": "Un article à 60 € est soldé à −50 %. Quel est son prix ?", "choix": ["30 €", "40 €", "55 €"], "bonne": 0, "explication": "50 % = la moitié : 60 ÷ 2 = 30 €." },
+                { "type": "qcm", "q": "Un salaire de 1600 € augmente de 10 %. Quel est le nouveau salaire ?", "choix": ["1610 €", "1700 €", "1760 €"], "bonne": 2, "explication": "10 % de 1600 = 160. Nouveau salaire : 1600 + 160 = 1760 €." }
+              ]
+            },
+            {
+              "type": "quiz", "id": "ma-pc-q1", "titre": "Quiz : pourcentages",
+              "questions": [
+                { "type": "qcm", "q": "25 %, c'est la même chose que :", "choix": ["la moitié", "le quart", "le dixième"], "bonne": 1, "explication": "25 % = 25/100 = 1/4, le quart." },
+                { "type": "texte", "q": "Combien font 10 % de 780 ? ", "reponses": ["78"], "explication": "780 ÷ 10 = 78." },
+                { "type": "qcm", "q": "Combien font 30 % de 200 € ?", "choix": ["30 €", "60 €", "90 €"], "bonne": 1, "explication": "10 % de 200 = 20, donc 30 % = 60 €." },
+                { "type": "qcm", "q": "Un article à 120 € bénéficie d'une remise de 25 %. Quel est le prix final ?", "choix": ["90 €", "95 €", "100 €"], "bonne": 0, "explication": "25 % de 120 = 30 €. Prix final : 120 − 30 = 90 €." },
+                { "type": "vraifaux", "q": "Augmenter de 100 %, c'est doubler.", "bonne": true, "explication": "Ajouter 100 % de la valeur revient à la multiplier par 2." }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "mesures",
+          "titre": "Mesures et conversions",
+          "description": "Longueurs, poids, temps : convertir sans se tromper.",
+          "elements": [
+            {
+              "type": "lecon", "id": "ma-me-l1", "titre": "Convertir les unités courantes", "duree": "10 min",
+              "contenu": [
+                { "t": "h", "x": "Les longueurs" },
+                { "t": "p", "x": "1 km = 1000 m · 1 m = 100 cm · 1 cm = 10 mm. Pour passer à l'unité plus petite, on multiplie ; à l'unité plus grande, on divise. 2,5 m = 250 cm. 4500 m = 4,5 km." },
+                { "t": "h", "x": "Les poids" },
+                { "t": "p", "x": "1 tonne = 1000 kg · 1 kg = 1000 g. Un colis de 1,5 kg pèse 1500 g. Une palette de 800 kg pèse 0,8 tonne." },
+                { "t": "h", "x": "Les volumes" },
+                { "t": "p", "x": "1 L = 100 cL = 1000 mL. Une bouteille de 75 cL = 0,75 L. Un bidon de 5 L = 500 cL." },
+                { "t": "h", "x": "Le temps" },
+                { "t": "p", "x": "1 h = 60 min · 1 min = 60 s. Attention : 1 h 30 n'est pas 1,3 h ! 1 h 30 = 90 min. Un quart d'heure = 15 min, une demi-heure = 30 min, trois quarts d'heure = 45 min." },
+                { "t": "exemple", "x": "Une tournée commence à 8 h 45 et dure 2 h 30 : 8 h 45 + 2 h = 10 h 45, puis + 30 min = 11 h 15." },
+                { "t": "astuce", "x": "Pour le temps, séparez toujours les heures et les minutes dans vos calculs, puis recollez à la fin." }
+              ]
+            },
+            {
+              "type": "exercice", "id": "ma-me-e1", "titre": "Exercice : conversions pratiques",
+              "consigne": "Convertissez, puis répondez.",
+              "questions": [
+                { "type": "qcm", "q": "3,2 m = ?", "choix": ["32 cm", "320 cm", "3200 cm"], "bonne": 1, "explication": "1 m = 100 cm, donc 3,2 m = 320 cm." },
+                { "type": "texte", "q": "2,4 kg = combien de grammes ? (juste le nombre)", "reponses": ["2400", "2 400"], "explication": "1 kg = 1000 g, donc 2,4 kg = 2400 g." },
+                { "type": "qcm", "q": "1 h 45, c'est combien de minutes ?", "choix": ["95 min", "105 min", "145 min"], "bonne": 1, "explication": "60 + 45 = 105 minutes." },
+                { "type": "qcm", "q": "Une pause commence à 12 h 40 et dure 50 minutes. À quelle heure se termine-t-elle ?", "choix": ["13 h 20", "13 h 30", "13 h 40"], "bonne": 1, "explication": "12 h 40 + 20 min = 13 h, puis + 30 min = 13 h 30." }
+              ]
+            },
+            {
+              "type": "quiz", "id": "ma-me-q1", "titre": "Quiz : mesures et conversions",
+              "questions": [
+                { "type": "qcm", "q": "4500 m = ?", "choix": ["0,45 km", "4,5 km", "45 km"], "bonne": 1, "explication": "1 km = 1000 m, donc 4500 m = 4,5 km." },
+                { "type": "qcm", "q": "0,75 L = ?", "choix": ["7,5 cL", "75 cL", "750 cL"], "bonne": 1, "explication": "1 L = 100 cL, donc 0,75 L = 75 cL." },
+                { "type": "vraifaux", "q": "1 h 30 = 130 minutes.", "bonne": false, "explication": "1 h 30 = 60 + 30 = 90 minutes." },
+                { "type": "qcm", "q": "Une palette pèse 1200 kg. En tonnes, cela fait :", "choix": ["0,12 t", "1,2 t", "12 t"], "bonne": 1, "explication": "1 t = 1000 kg, donc 1200 kg = 1,2 t." },
+                { "type": "qcm", "q": "Un trajet commence à 9 h 50 et dure 1 h 25. Heure d'arrivée ?", "choix": ["11 h 05", "11 h 15", "11 h 25"], "bonne": 1, "explication": "9 h 50 + 10 min = 10 h, + 1 h 15 restant = 11 h 15." }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "numerique",
+      "titre": "Compétences numériques",
+      "icone": "💻",
+      "couleur": "#7c3aed",
+      "description": "Être à l'aise avec l'ordinateur, Internet et la messagerie, en toute sécurité.",
+      "sections": [
+        {
+          "id": "ordinateur",
+          "titre": "Prise en main de l'ordinateur",
+          "description": "Le vocabulaire de base, les fenêtres, les fichiers et les dossiers.",
+          "elements": [
+            {
+              "type": "lecon", "id": "nu-ordi-l1", "titre": "L'essentiel pour démarrer", "duree": "10 min",
+              "contenu": [
+                { "t": "h", "x": "Le vocabulaire de base" },
+                { "t": "liste", "x": ["Le bureau : l'écran d'accueil, avec les icônes.", "Une icône : une petite image qui ouvre un programme ou un fichier.", "Une fenêtre : le cadre dans lequel s'affiche un programme.", "Un clic = sélectionner · un double-clic = ouvrir · un clic droit = afficher le menu d'options."] },
+                { "t": "h", "x": "Fichiers et dossiers" },
+                { "t": "p", "x": "Un fichier est un document (texte, photo, tableau…). Un dossier est une « boîte » qui range des fichiers. Bien nommer ses fichiers fait gagner beaucoup de temps : « Planning_semaine_12.pdf » plutôt que « document(3).pdf »." },
+                { "t": "h", "x": "Enregistrer son travail" },
+                { "t": "p", "x": "Enregistrez régulièrement avec le bouton Enregistrer ou le raccourci Ctrl + S. Un travail non enregistré peut être perdu si l'ordinateur s'éteint." },
+                { "t": "exemple", "x": "Raccourcis utiles : Ctrl + C (copier), Ctrl + V (coller), Ctrl + Z (annuler la dernière action)." },
+                { "t": "astuce", "x": "Perdu ? Fermez les fenêtres une par une pour revenir au bureau, puis recommencez calmement. On ne casse rien en cliquant." }
+              ]
+            },
+            {
+              "type": "exercice", "id": "nu-ordi-e1", "titre": "Exercice : les bons gestes",
+              "consigne": "Choisissez la bonne réponse.",
+              "questions": [
+                { "type": "qcm", "q": "Pour ouvrir un programme depuis le bureau, on fait :", "choix": ["un clic droit", "un double-clic", "on tape son nom au clavier"], "bonne": 1, "explication": "Le double-clic ouvre un programme ou un fichier." },
+                { "type": "qcm", "q": "Quel raccourci permet d'annuler la dernière action ?", "choix": ["Ctrl + Z", "Ctrl + V", "Ctrl + S"], "bonne": 0, "explication": "Ctrl + Z annule. Très utile en cas d'erreur !" },
+                { "type": "qcm", "q": "Quel nom de fichier est le plus utile ?", "choix": ["document(5).docx", "Facture_Durand_mars2026.docx", "sans titre.docx"], "bonne": 1, "explication": "Un nom précis permet de retrouver le fichier en quelques secondes." },
+                { "type": "vraifaux", "q": "Un dossier peut contenir plusieurs fichiers.", "bonne": true, "explication": "C'est justement son rôle : ranger et regrouper des fichiers." }
+              ]
+            },
+            {
+              "type": "quiz", "id": "nu-ordi-q1", "titre": "Quiz : l'ordinateur",
+              "questions": [
+                { "type": "qcm", "q": "Que fait un clic droit ?", "choix": ["Il ouvre le fichier", "Il affiche un menu d'options", "Il éteint l'ordinateur"], "bonne": 1, "explication": "Le clic droit affiche le menu contextuel (copier, renommer, supprimer…)." },
+                { "type": "qcm", "q": "Ctrl + S sert à :", "choix": ["supprimer", "enregistrer", "sélectionner"], "bonne": 1, "explication": "Ctrl + S = sauvegarder (Save). À utiliser souvent !" },
+                { "type": "qcm", "q": "Copier puis coller, c'est :", "choix": ["Ctrl + C puis Ctrl + V", "Ctrl + V puis Ctrl + C", "Ctrl + Z puis Ctrl + S"], "bonne": 0, "explication": "Ctrl + C copie, Ctrl + V colle." },
+                { "type": "vraifaux", "q": "Si l'ordinateur s'éteint, un document non enregistré peut être perdu.", "bonne": true, "explication": "D'où l'importance d'enregistrer régulièrement." },
+                { "type": "qcm", "q": "Une « fenêtre », c'est :", "choix": ["le cadre dans lequel s'affiche un programme", "un type de virus", "le bouton d'arrêt"], "bonne": 0, "explication": "Chaque programme ouvert s'affiche dans une fenêtre." }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "internet",
+          "titre": "Internet et e-mail",
+          "description": "Naviguer sur le web et utiliser sa messagerie efficacement.",
+          "elements": [
+            {
+              "type": "lecon", "id": "nu-net-l1", "titre": "Naviguer et communiquer en ligne", "duree": "10 min",
+              "contenu": [
+                { "t": "h", "x": "Le navigateur" },
+                { "t": "p", "x": "Le navigateur (Chrome, Firefox, Edge, Safari…) est le programme qui permet d'aller sur Internet. La barre d'adresse en haut sert à taper l'adresse d'un site (ex. service-public.fr) ou une recherche." },
+                { "t": "h", "x": "Chercher une information" },
+                { "t": "liste", "x": ["Tapez des mots-clés simples : « horaires mairie Lyon 3 » plutôt qu'une phrase entière.", "Comparez plusieurs résultats avant de faire confiance à un site.", "Privilégiez les sites officiels (adresses en .gouv.fr, sites connus)."] },
+                { "t": "h", "x": "L'e-mail" },
+                { "t": "p", "x": "Une adresse e-mail se compose ainsi : prenom.nom@fournisseur.fr — sans espaces ni accents. Le symbole @ se lit « arobase ». Pour envoyer un message : destinataire (À), objet, texte, puis bouton Envoyer. Une pièce jointe (trombone 📎) permet de joindre un document." },
+                { "t": "exemple", "x": "Pour envoyer un justificatif : nouveau message → À : rh@atigroupe.fr → Objet : Justificatif d'absence → texte court et poli → joindre le document → Envoyer." },
+                { "t": "astuce", "x": "Vérifiez l'adresse du destinataire avant d'envoyer : un seul caractère faux et le message n'arrive pas (ou arrive chez la mauvaise personne)." }
+              ]
+            },
+            {
+              "type": "exercice", "id": "nu-net-e1", "titre": "Exercice : web et messagerie",
+              "consigne": "Choisissez la bonne réponse.",
+              "questions": [
+                { "type": "qcm", "q": "Quelle adresse e-mail est correctement écrite ?", "choix": ["marie dupont@mail.fr", "marie.dupont@mail.fr", "marie.dupont.mail.fr"], "bonne": 1, "explication": "Pas d'espace, et le symbole @ obligatoire entre le nom et le fournisseur." },
+                { "type": "qcm", "q": "Pour chercher les horaires d'une déchetterie, le plus efficace est de taper :", "choix": ["« bonjour je voudrais savoir quand est-ce que la déchetterie est ouverte merci »", "« horaires déchetterie Villeurbanne »", "« déchetterie »"], "bonne": 1, "explication": "Des mots-clés précis donnent les meilleurs résultats." },
+                { "type": "qcm", "q": "Le petit trombone 📎 dans un e-mail sert à :", "choix": ["mettre le message en favori", "joindre un document", "supprimer le message"], "bonne": 1, "explication": "Le trombone ajoute une pièce jointe au message." },
+                { "type": "vraifaux", "q": "Dans le champ « Objet », on résume le sujet du message en quelques mots.", "bonne": true, "explication": "L'objet aide le destinataire à comprendre de quoi parle le message." }
+              ]
+            },
+            {
+              "type": "quiz", "id": "nu-net-q1", "titre": "Quiz : Internet et e-mail",
+              "questions": [
+                { "type": "qcm", "q": "Le programme qui permet d'aller sur Internet s'appelle :", "choix": ["un navigateur", "un antivirus", "un tableur"], "bonne": 0, "explication": "Chrome, Firefox, Edge ou Safari sont des navigateurs." },
+                { "type": "qcm", "q": "Le symbole @ se lit :", "choix": ["hashtag", "arobase", "esperluette"], "bonne": 1, "explication": "@ = arobase, présent dans toutes les adresses e-mail." },
+                { "type": "qcm", "q": "Avant de faire confiance à une information trouvée en ligne, il vaut mieux :", "choix": ["la partager tout de suite", "vérifier sur un site officiel ou comparer plusieurs sources", "regarder si la page a de belles couleurs"], "bonne": 1, "explication": "Croiser les sources est le meilleur réflexe contre les fausses informations." },
+                { "type": "vraifaux", "q": "Une adresse e-mail peut contenir des espaces.", "bonne": false, "explication": "Jamais d'espace dans une adresse e-mail." },
+                { "type": "qcm", "q": "Pour envoyer un document par e-mail, on utilise :", "choix": ["la pièce jointe", "l'historique", "les favoris"], "bonne": 0, "explication": "La pièce jointe (icône trombone) permet d'envoyer un fichier." }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "securite",
+          "titre": "Sécurité en ligne",
+          "description": "Mots de passe, arnaques, données personnelles : les bons réflexes.",
+          "elements": [
+            {
+              "type": "lecon", "id": "nu-sec-l1", "titre": "Se protéger sur Internet", "duree": "10 min",
+              "contenu": [
+                { "t": "h", "x": "Les mots de passe" },
+                { "t": "liste", "x": ["Un bon mot de passe est long (12 caractères ou plus) et mélange lettres, chiffres et symboles.", "Évitez les évidences : date de naissance, « 123456 », « azerty », prénom des enfants.", "Utilisez un mot de passe différent pour chaque compte important.", "Ne donnez JAMAIS votre mot de passe, même à quelqu'un qui dit être « le support informatique »."] },
+                { "t": "h", "x": "Reconnaître une arnaque (phishing)" },
+                { "t": "p", "x": "Le phishing (hameçonnage) est un faux message qui imite une banque, la CAF, un transporteur… pour voler vos informations. Signes qui doivent alerter : ton urgent (« votre compte sera bloqué ! »), fautes d'orthographe, demande de données bancaires, lien ou pièce jointe inattendus, adresse d'expéditeur bizarre." },
+                { "t": "exemple", "x": "« Votre colis est bloqué, payez 1,99 € en cliquant ici » : un vrai transporteur ne demande jamais de paiement par SMS. On ne clique pas, on supprime." },
+                { "t": "h", "x": "Les données personnelles" },
+                { "t": "p", "x": "Réfléchissez avant de publier : une photo ou une information mise en ligne peut être vue par tout le monde et difficile à effacer. Sur les réseaux sociaux, vérifiez que votre profil n'est visible que par vos proches." },
+                { "t": "astuce", "x": "Dans le doute, ne cliquez pas. Tapez vous-même l'adresse officielle du site dans le navigateur plutôt que de cliquer sur un lien reçu." }
+              ]
+            },
+            {
+              "type": "exercice", "id": "nu-sec-e1", "titre": "Exercice : détecter les pièges",
+              "consigne": "Analysez chaque situation et choisissez la bonne réaction.",
+              "questions": [
+                { "type": "qcm", "q": "Quel mot de passe est le plus sûr ?", "choix": ["123456", "Trombone!Vert$2026", "azerty"], "bonne": 1, "explication": "Long + lettres + chiffres + symboles = difficile à deviner." },
+                { "type": "qcm", "q": "Un SMS dit : « Votre compte bancaire est suspendu, cliquez vite ici ». Que faites-vous ?", "choix": ["Je clique pour vérifier", "Je supprime et je contacte ma banque par le canal habituel si besoin", "Je réponds en donnant mon numéro de carte"], "bonne": 1, "explication": "Ton urgent + lien = arnaque quasi certaine. On passe toujours par le canal officiel." },
+                { "type": "qcm", "q": "Quelqu'un au téléphone se présente comme « le support » et demande votre mot de passe :", "choix": ["Je le donne, c'est le support", "Je refuse : un mot de passe ne se communique jamais", "Je donne juste la moitié"], "bonne": 1, "explication": "Aucun service légitime ne demande jamais votre mot de passe." },
+                { "type": "vraifaux", "q": "Une photo publiée sur Internet peut être très difficile à effacer complètement.", "bonne": true, "explication": "Une fois partagée, elle peut être copiée et rediffusée." }
+              ]
+            },
+            {
+              "type": "quiz", "id": "nu-sec-q1", "titre": "Quiz : sécurité en ligne",
+              "questions": [
+                { "type": "qcm", "q": "Un bon mot de passe :", "choix": ["est court et facile à retenir", "est long et mélange lettres, chiffres, symboles", "est le même partout pour ne pas l'oublier"], "bonne": 1, "explication": "Long et varié — et différent pour chaque compte important." },
+                { "type": "qcm", "q": "Le « phishing », c'est :", "choix": ["un jeu en ligne", "un faux message qui cherche à voler vos informations", "un antivirus"], "bonne": 1, "explication": "Le phishing imite un organisme connu pour vous piéger." },
+                { "type": "qcm", "q": "Quel signe doit vous alerter dans un e-mail ?", "choix": ["Une formule de politesse", "Un ton urgent et une demande de données bancaires", "Un logo d'entreprise"], "bonne": 1, "explication": "Urgence + demande d'argent ou de données = piège classique." },
+                { "type": "vraifaux", "q": "Il est prudent d'utiliser le même mot de passe partout.", "bonne": false, "explication": "Si un site est piraté, tous vos comptes deviendraient vulnérables." },
+                { "type": "qcm", "q": "Vous recevez un lien douteux. Le bon réflexe est de :", "choix": ["cliquer rapidement pour voir", "taper vous-même l'adresse officielle du site dans le navigateur", "transférer le lien à vos collègues"], "bonne": 1, "explication": "Ne jamais cliquer sur un lien douteux : passez par l'adresse officielle." }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

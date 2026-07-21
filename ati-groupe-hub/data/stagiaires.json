@@ -1,0 +1,9 @@
+{
+  "_aide": "Pour ajouter un stagiaire : copiez un bloc { ... } ci-dessous, collez-le après une virgule, puis changez nom, prenom et code. Le code doit être UNIQUE. Majuscules/minuscules et accents sont ignorés à la connexion.",
+  "stagiaires": [
+    { "nom": "Dupont", "prenom": "Marie", "code": "ATI-1001" },
+    { "nom": "Martin", "prenom": "Karim", "code": "ATI-1002" },
+    { "nom": "Bernard", "prenom": "Sophie", "code": "ATI-1003" },
+    { "nom": "Demo", "prenom": "Test", "code": "DEMO" }
+  ]
+}
