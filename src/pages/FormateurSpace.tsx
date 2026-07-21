@@ -3,8 +3,8 @@ import { supabase } from '@/lib/supabase';
 import { useAuth } from '@/context/AuthContext';
 import { getModuleIcon, getColor } from '@/lib/theme';
 import {
-  Users, ClipboardList, Award, TrendingUp, Search, Download,
-  Calendar, GraduationCap, Inbox,
+  Users, ClipboardList, TrendingUp, Search, Download,
+  Calendar, GraduationCap, Inbox, FileDown,
 } from 'lucide-react';
 import type { Stagiaire, PlacementTest, PlacementResult, Module } from '@/types';
 
@@ -152,6 +152,16 @@ function Overview({
                     <div className={`h-full ${pctBar(avg)}`} style={{ width: `${avg}%` }} />
                   </div>
                 </div>
+                {t.pdf_url && (
+                  <a
+                    href={t.pdf_url}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="mt-3 inline-flex items-center gap-1.5 text-xs font-medium text-slate-500 hover:text-indigo-600 transition"
+                  >
+                    <FileDown className="h-3.5 w-3.5" /> Version PDF imprimable
+                  </a>
+                )}
               </div>
             );
           })}

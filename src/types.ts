@@ -56,6 +56,7 @@ export interface PlacementTest {
   titre: string;
   description: string | null;
   module_id: string | null;
+  pdf_url: string | null;
 }
 
 export interface PlacementQuestion {

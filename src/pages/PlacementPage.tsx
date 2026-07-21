@@ -4,7 +4,7 @@ import { useAuth } from '@/context/AuthContext';
 import { getModuleIcon, getColor } from '@/lib/theme';
 import {
   ClipboardList, ArrowLeft, ChevronRight, Check, X, Trophy, RotateCcw,
-  Lightbulb, GraduationCap, Award,
+  Lightbulb, GraduationCap, Award, FileDown,
 } from 'lucide-react';
 import type { PlacementTest, PlacementQuestion, PlacementResult, Module } from '@/types';
 
@@ -103,6 +103,16 @@ export default function PlacementPage({ onBack }: Props) {
                   >
                     Commencer le test <ChevronRight className="h-4 w-4" />
                   </button>
+                )}
+                {t.pdf_url && (
+                  <a
+                    href={t.pdf_url}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="mt-3 inline-flex items-center gap-1.5 text-xs font-medium text-slate-500 hover:text-brand-600 transition"
+                  >
+                    <FileDown className="h-3.5 w-3.5" /> Version PDF imprimable
+                  </a>
                 )}
               </div>
             );
