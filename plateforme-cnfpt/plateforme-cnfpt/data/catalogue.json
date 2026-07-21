@@ -1,11 +1,16 @@
 {
-  "_aide": "Ce fichier pilote TOUTE la plateforme. Pour ajouter une formation : copiez un bloc dans 'formations'. Pour ajouter un module : ajoutez une ligne dans 'modules'. Pour ajouter un quiz : ajoutez une ligne dans 'quiz'. Aucune autre modification n'est nécessaire. Respectez bien les virgules et les guillemets.",
+  "_aide": "Ce fichier pilote TOUTE la plateforme. Pour ajouter une formation : copiez un bloc dans 'formations'. Pour ajouter un module : ajoutez une ligne dans 'modules'. Pour ajouter un quiz : ajoutez une ligne dans 'quiz'. Pour modifier le test de positionnement : éditez le bloc 'positionnement' de la formation. Aucune autre modification n'est nécessaire. Respectez bien les virgules et les guillemets.",
 
   "organisme": {
     "nom": "ATIGROUPE",
     "accroche": "Centre de formation",
     "pied": "ATIGROUPE — 6F place Émile Zola, 97320 Saint-Laurent-du-Maroni — rh@atigroupe.fr",
     "contactEmail": "rh@atigroupe.fr"
+  },
+
+  "formateur": {
+    "_aide": "Code demandé pour accéder à l'espace formateur (formateur.html). Modifiez-le ici.",
+    "codeAcces": "ATI2026"
   },
 
   "formations": [
@@ -68,60 +73,347 @@
         }
       ],
       "quiz": [
-  {
-    "id": "q1",
-    "moduleId": "m1",
-    "titre": "Quiz Module 1 — Découverte de l'ordinateur",
-    "resume": "Quiz interactif sur les bases de l'ordinateur, le matériel et les premiers usages.",
-    "fichier": "formations/initiation-informatique/quiz/CNFPT_Quiz_Module_1_Decouverte_Ordinateur.html"
-  },
-  {
-    "id": "q2",
-    "moduleId": "m2",
-    "titre": "Quiz Module 2 — Windows",
-    "resume": "Quiz interactif sur l'utilisation de Windows, du bureau, des fenêtres, fichiers et dossiers.",
-    "fichier": "formations/initiation-informatique/quiz/CNFPT_Quiz_Module_2_Windows.html"
-  },
-  {
-    "id": "q3",
-    "moduleId": "m3",
-    "titre": "Quiz Module 3 — Internet",
-    "resume": "Quiz interactif sur la navigation web, la recherche en ligne et les bonnes pratiques.",
-    "fichier": "formations/initiation-informatique/quiz/CNFPT_Quiz_Module_3_Internet.html"
-  },
-  {
-    "id": "q4",
-    "moduleId": "m4",
-    "titre": "Quiz Module 4 — Messagerie",
-    "resume": "Quiz interactif sur l'utilisation de la messagerie électronique et des pièces jointes.",
-    "fichier": "formations/initiation-informatique/quiz/CNFPT_Quiz_Module_4_Messagerie.html"
-  },
-  {
-    "id": "q5",
-    "moduleId": "m5",
-    "titre": "Quiz Module 5 — Word",
-    "resume": "Quiz interactif sur les bases du traitement de texte avec Word.",
-    "fichier": "formations/initiation-informatique/quiz/CNFPT_Quiz_Module_5_Word.html"
-  },
-  {
-    "id": "q6",
-    "moduleId": "m6",
-    "titre": "Quiz Module 6 — Excel",
-    "resume": "Quiz interactif sur les bases du tableur, les cellules, les calculs simples et les tableaux.",
-    "fichier": "formations/initiation-informatique/quiz/CNFPT_Quiz_Module_6_Excel.html"
-  },
-  {
-    "id": "q7",
-    "moduleId": "m7",
-    "titre": "Quiz Module 7 — PowerPoint",
-    "resume": "Quiz interactif sur la création de présentations et l'utilisation de PowerPoint.",
-    "fichier": "formations/initiation-informatique/quiz/CNFPT_Quiz_Module_7_PowerPoint.html"
-  },
-  {
-    "id": "q8",
-    "moduleId": "m8",
-    "titre": "Quiz Module 8 — Mot de passe oublié",
-    "resume": "Quiz interactif sur la récupération et la réinitialisation d'un mot de passe.",
-    "fichier": "formations/initiation-informatique/quiz/CNFPT_Quiz_Module_8_Mot_de_passe_oublie.html"
-  }
-]
+        {
+          "id": "q1",
+          "moduleId": "m1",
+          "titre": "Quiz Module 1 — Découverte de l'ordinateur",
+          "resume": "Quiz interactif sur les bases de l'ordinateur, le matériel et les premiers usages.",
+          "fichier": "formations/initiation-informatique/quiz/CNFPT_Quiz_Module_1_Decouverte_Ordinateur.html"
+        },
+        {
+          "id": "q2",
+          "moduleId": "m2",
+          "titre": "Quiz Module 2 — Windows",
+          "resume": "Quiz interactif sur l'utilisation de Windows, du bureau, des fenêtres, fichiers et dossiers.",
+          "fichier": "formations/initiation-informatique/quiz/CNFPT_Quiz_Module_2_Windows.html"
+        },
+        {
+          "id": "q3",
+          "moduleId": "m3",
+          "titre": "Quiz Module 3 — Internet",
+          "resume": "Quiz interactif sur la navigation web, la recherche en ligne et les bonnes pratiques.",
+          "fichier": "formations/initiation-informatique/quiz/CNFPT_Quiz_Module_3_Internet.html"
+        },
+        {
+          "id": "q4",
+          "moduleId": "m4",
+          "titre": "Quiz Module 4 — Messagerie",
+          "resume": "Quiz interactif sur l'utilisation de la messagerie électronique et des pièces jointes.",
+          "fichier": "formations/initiation-informatique/quiz/CNFPT_Quiz_Module_4_Messagerie.html"
+        },
+        {
+          "id": "q5",
+          "moduleId": "m5",
+          "titre": "Quiz Module 5 — Word",
+          "resume": "Quiz interactif sur les bases du traitement de texte avec Word.",
+          "fichier": "formations/initiation-informatique/quiz/CNFPT_Quiz_Module_5_Word.html"
+        },
+        {
+          "id": "q6",
+          "moduleId": "m6",
+          "titre": "Quiz Module 6 — Excel",
+          "resume": "Quiz interactif sur les bases du tableur, les cellules, les calculs simples et les tableaux.",
+          "fichier": "formations/initiation-informatique/quiz/CNFPT_Quiz_Module_6_Excel.html"
+        },
+        {
+          "id": "q7",
+          "moduleId": "m7",
+          "titre": "Quiz Module 7 — PowerPoint",
+          "resume": "Quiz interactif sur la création de présentations et l'utilisation de PowerPoint.",
+          "fichier": "formations/initiation-informatique/quiz/CNFPT_Quiz_Module_7_PowerPoint.html"
+        },
+        {
+          "id": "q8",
+          "moduleId": "m8",
+          "titre": "Quiz Module 8 — Mot de passe oublié",
+          "resume": "Quiz interactif sur la récupération et la réinitialisation d'un mot de passe.",
+          "fichier": "formations/initiation-informatique/quiz/CNFPT_Quiz_Module_8_Mot_de_passe_oublie.html"
+        }
+      ],
+
+      "positionnement": {
+        "titre": "Test de positionnement — Initiation informatique",
+        "description": "Ce test permet d'évaluer votre niveau AVANT la formation afin d'adapter le parcours à vos besoins. Il n'y a pas de bonne ou de mauvaise note : répondez sincèrement, sans aide extérieure. Durée estimée : 10 à 15 minutes.",
+        "seuils": {
+          "_aide": "Pourcentage minimal pour chaque niveau : en dessous de 'intermediaire' = Débutant, en dessous de 'avance' = Intermédiaire, au-dessus = Avancé.",
+          "intermediaire": 40,
+          "avance": 75
+        },
+        "questions": [
+          {
+            "id": "p1",
+            "moduleId": "m1",
+            "domaine": "Les bases de l'informatique",
+            "question": "Quel composant est considéré comme le « cerveau » de l'ordinateur ?",
+            "choix": ["L'écran", "Le processeur", "Le clavier", "L'imprimante"],
+            "bonne": 1
+          },
+          {
+            "id": "p2",
+            "moduleId": "m1",
+            "domaine": "Les bases de l'informatique",
+            "question": "Parmi ces éléments, lequel est un périphérique de sortie ?",
+            "choix": ["La souris", "Le clavier", "L'écran", "Le scanner"],
+            "bonne": 2
+          },
+          {
+            "id": "p3",
+            "moduleId": "m1",
+            "domaine": "Les bases de l'informatique",
+            "question": "Qu'est-ce qu'un système d'exploitation ?",
+            "choix": [
+              "Un logiciel qui fait fonctionner l'ordinateur (ex. Windows)",
+              "Un site Internet",
+              "Une pièce de l'ordinateur",
+              "Un type d'imprimante"
+            ],
+            "bonne": 0
+          },
+          {
+            "id": "p4",
+            "moduleId": "m2",
+            "domaine": "L'utilisation de Windows",
+            "question": "Comment s'appelle l'écran principal de Windows, avec les icônes et le fond d'écran ?",
+            "choix": ["La fenêtre", "Le Bureau", "Le menu Démarrer", "L'explorateur"],
+            "bonne": 1
+          },
+          {
+            "id": "p5",
+            "moduleId": "m2",
+            "domaine": "L'utilisation de Windows",
+            "question": "À quoi sert la Corbeille de Windows ?",
+            "choix": [
+              "À ranger ses documents importants",
+              "À stocker les fichiers supprimés avant leur effacement définitif",
+              "À nettoyer l'écran",
+              "À éteindre l'ordinateur"
+            ],
+            "bonne": 1
+          },
+          {
+            "id": "p6",
+            "moduleId": "m2",
+            "domaine": "L'utilisation de Windows",
+            "question": "Comment fermer une fenêtre ouverte à l'écran ?",
+            "choix": [
+              "En cliquant sur la croix en haut à droite de la fenêtre",
+              "En éteignant l'écran",
+              "En appuyant sur la touche Entrée",
+              "En débranchant l'ordinateur"
+            ],
+            "bonne": 0
+          },
+          {
+            "id": "p7",
+            "moduleId": "m3",
+            "domaine": "La navigation sur Internet",
+            "question": "Quel logiciel permet de naviguer sur Internet ?",
+            "choix": [
+              "Un traitement de texte comme Word",
+              "Un navigateur comme Chrome, Edge ou Firefox",
+              "Un antivirus",
+              "Un lecteur de musique"
+            ],
+            "bonne": 1
+          },
+          {
+            "id": "p8",
+            "moduleId": "m3",
+            "domaine": "La navigation sur Internet",
+            "question": "Que signifie le petit cadenas affiché à côté de l'adresse d'un site ?",
+            "choix": [
+              "Le site est payant",
+              "Le site est interdit",
+              "La connexion au site est sécurisée (chiffrée)",
+              "Le site est en panne"
+            ],
+            "bonne": 2
+          },
+          {
+            "id": "p9",
+            "moduleId": "m3",
+            "domaine": "La navigation sur Internet",
+            "question": "Qu'est-ce qu'un moteur de recherche ?",
+            "choix": [
+              "Un outil pour trouver des informations sur Internet (ex. Google)",
+              "Une pièce mécanique de l'ordinateur",
+              "Un logiciel pour écrire des courriels",
+              "Un câble de connexion"
+            ],
+            "bonne": 0
+          },
+          {
+            "id": "p10",
+            "moduleId": "m4",
+            "domaine": "La messagerie électronique",
+            "question": "De quoi a-t-on absolument besoin pour envoyer un courriel à quelqu'un ?",
+            "choix": [
+              "De son numéro de téléphone",
+              "De son adresse électronique (e-mail)",
+              "De son adresse postale",
+              "De sa date de naissance"
+            ],
+            "bonne": 1
+          },
+          {
+            "id": "p11",
+            "moduleId": "m4",
+            "domaine": "La messagerie électronique",
+            "question": "Qu'est-ce qu'une pièce jointe ?",
+            "choix": [
+              "Un fichier (document, photo…) envoyé avec un courriel",
+              "La signature du courriel",
+              "L'objet du courriel",
+              "Le destinataire du courriel"
+            ],
+            "bonne": 0
+          },
+          {
+            "id": "p12",
+            "moduleId": "m4",
+            "domaine": "La messagerie électronique",
+            "question": "Vous recevez un courriel inattendu qui vous demande votre mot de passe. Que faites-vous ?",
+            "choix": [
+              "Je réponds avec mon mot de passe",
+              "Je clique sur le lien pour vérifier",
+              "Je ne réponds pas : c'est probablement une arnaque (hameçonnage)",
+              "Je transfère le courriel à mes collègues"
+            ],
+            "bonne": 2
+          },
+          {
+            "id": "p13",
+            "moduleId": "m5",
+            "domaine": "Word : le traitement de texte",
+            "question": "À quoi sert principalement le logiciel Word ?",
+            "choix": [
+              "À faire des calculs",
+              "À écrire et mettre en forme des documents (lettres, comptes rendus…)",
+              "À naviguer sur Internet",
+              "À retoucher des photos"
+            ],
+            "bonne": 1
+          },
+          {
+            "id": "p14",
+            "moduleId": "m5",
+            "domaine": "Word : le traitement de texte",
+            "question": "Quel raccourci clavier permet d'enregistrer rapidement un document ?",
+            "choix": ["Ctrl + S", "Ctrl + P", "Alt + F4", "Ctrl + Z"],
+            "bonne": 0
+          },
+          {
+            "id": "p15",
+            "moduleId": "m5",
+            "domaine": "Word : le traitement de texte",
+            "question": "Comment mettre un mot en gras dans Word ?",
+            "choix": [
+              "Le sélectionner puis cliquer sur le bouton « G » (ou Ctrl + G)",
+              "L'écrire en majuscules",
+              "Appuyer deux fois sur la barre d'espace",
+              "Changer la couleur du texte"
+            ],
+            "bonne": 0
+          },
+          {
+            "id": "p16",
+            "moduleId": "m6",
+            "domaine": "Excel : le tableur",
+            "question": "Dans Excel, comment s'appelle la case située à l'intersection d'une ligne et d'une colonne ?",
+            "choix": ["Une fenêtre", "Une cellule", "Un onglet", "Une formule"],
+            "bonne": 1
+          },
+          {
+            "id": "p17",
+            "moduleId": "m6",
+            "domaine": "Excel : le tableur",
+            "question": "Par quel signe commence toujours une formule de calcul dans Excel ?",
+            "choix": ["Le signe +", "Le signe =", "Le signe #", "Le signe %"],
+            "bonne": 1
+          },
+          {
+            "id": "p18",
+            "moduleId": "m6",
+            "domaine": "Excel : le tableur",
+            "question": "Quelle formule permet d'additionner les cellules A1 à A5 ?",
+            "choix": [
+              "=SOMME(A1:A5)",
+              "ADDITION A1 A5",
+              "=A1+A5 seulement",
+              "TOTAL(A1-A5)"
+            ],
+            "bonne": 0
+          },
+          {
+            "id": "p19",
+            "moduleId": "m7",
+            "domaine": "PowerPoint : les présentations",
+            "question": "À quoi sert principalement le logiciel PowerPoint ?",
+            "choix": [
+              "À créer des présentations à projeter (diaporamas)",
+              "À envoyer des courriels",
+              "À gérer un budget",
+              "À imprimer des photos"
+            ],
+            "bonne": 0
+          },
+          {
+            "id": "p20",
+            "moduleId": "m7",
+            "domaine": "PowerPoint : les présentations",
+            "question": "Comment s'appelle une « page » dans une présentation PowerPoint ?",
+            "choix": ["Une feuille", "Un chapitre", "Une diapositive", "Un signet"],
+            "bonne": 2
+          },
+          {
+            "id": "p21",
+            "moduleId": "m7",
+            "domaine": "PowerPoint : les présentations",
+            "question": "Quelle touche du clavier lance le diaporama depuis le début ?",
+            "choix": ["F5", "Échap", "Ctrl + C", "La barre d'espace"],
+            "bonne": 0
+          },
+          {
+            "id": "p22",
+            "moduleId": "m8",
+            "domaine": "Mots de passe et sécurité",
+            "question": "Parmi ces mots de passe, lequel est le plus sûr ?",
+            "choix": [
+              "123456",
+              "azerty",
+              "Fleuve!Maroni#2026",
+              "motdepasse"
+            ],
+            "bonne": 2
+          },
+          {
+            "id": "p23",
+            "moduleId": "m8",
+            "domaine": "Mots de passe et sécurité",
+            "question": "Vous avez oublié le mot de passe d'un site. Quelle est la bonne démarche ?",
+            "choix": [
+              "Créer un nouveau compte",
+              "Utiliser le lien « Mot de passe oublié » pour le réinitialiser",
+              "Essayer tous les mots de passe possibles",
+              "Abandonner l'accès au site"
+            ],
+            "bonne": 1
+          },
+          {
+            "id": "p24",
+            "moduleId": "m8",
+            "domaine": "Mots de passe et sécurité",
+            "question": "Est-ce une bonne idée d'utiliser le même mot de passe partout ?",
+            "choix": [
+              "Oui, c'est plus simple à retenir",
+              "Oui, si le mot de passe est long",
+              "Non : si un site est piraté, tous les comptes deviennent vulnérables",
+              "Cela n'a aucune importance"
+            ],
+            "bonne": 2
+          }
+        ]
+      }
+    }
+  ]
+}
