@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Test de positionnement — ATIGROUPE</title>
+<meta name="description" content="Test de positionnement ATIGROUPE : évaluez votre niveau avant la formation pour un parcours adapté.">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <header class="entete">
+    <div class="entete-in">
+      <a class="marque" href="index.html">
+        <span class="marque-logo">A</span>
+        <span class="marque-txt">
+          <strong data-marque-nom>ATIGROUPE</strong>
+          <span>Espace de formation en ligne</span>
+        </span>
+      </a>
+      <a class="entete-lien" href="index.html">← Retour à l'accueil</a>
+    </div>
+  </header>
+
+  <div class="conteneur">
+    <nav class="fil" data-fil aria-label="Fil d'Ariane">
+      <a href="index.html">Accueil</a><span class="sep">›</span><span>Test de positionnement</span>
+    </nav>
+  </div>
+
+  <main class="conteneur section" style="padding-top:26px" data-page-positionnement>
+    <div class="etat"><div class="spin"></div>Chargement du test…</div>
+  </main>
+
+  <!-- Formulaire caché : permet à Netlify de détecter et collecter les résultats
+       (visibles dans le tableau de bord Netlify > Forms, notifications possibles). -->
+  <form name="positionnement" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden>
+    <input type="text" name="bot-field">
+    <input type="text" name="stagiaire">
+    <input type="text" name="formation">
+    <input type="text" name="date">
+    <input type="text" name="score">
+    <input type="text" name="niveau">
+    <textarea name="details"></textarea>
+  </form>
+
+  <footer class="pied">
+    <div class="pied-in">
+      <span data-pied-organisme>ATIGROUPE — Centre de formation</span>
+      <span>Une question&nbsp;? <a href="mailto:rh@atigroupe.fr">rh@atigroupe.fr</a></span>
+    </div>
+  </footer>
+
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

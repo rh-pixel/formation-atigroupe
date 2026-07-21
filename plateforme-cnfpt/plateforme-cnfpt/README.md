@@ -15,6 +15,8 @@ Vous n'avez jamais à toucher au code (HTML, CSS, JS) pour ajouter du contenu.
 plateforme-cnfpt/
 ├── index.html                ← page d'accueil (liste des formations)
 ├── formation.html            ← page d'une formation (modules + quiz)
+├── positionnement.html       ← test de positionnement (avant la formation)
+├── formateur.html            ← espace formateur (résultats des tests)
 ├── lecteur.html              ← visionneuse plein écran
 ├── 404.html                  ← page "introuvable"
 ├── netlify.toml              ← configuration Netlify (ne pas modifier)
@@ -62,6 +64,45 @@ dans le dossier `quiz/`.
    (`id`, `titre`, `client`, modules, quiz…).
 
 La nouvelle formation apparaît automatiquement sur la page d'accueil.
+
+## Test de positionnement
+
+Chaque formation peut proposer un **test de positionnement** (page
+`positionnement.html`) : le stagiaire saisit son prénom et son nom, répond
+aux questions, puis obtient immédiatement son score global, son niveau
+(Débutant / Intermédiaire / Avancé), le détail par domaine et la liste des
+modules conseillés.
+
+Tout se configure dans le bloc `"positionnement"` de la formation, dans
+`data/catalogue.json` :
+
+- `questions` : liste des questions. Chaque question a un `moduleId`
+  (le module correspondant), un `domaine` (intitulé affiché), la
+  `question`, les `choix` (liste de réponses) et `bonne` (position de la
+  bonne réponse, en commençant à **0**).
+- `seuils` : pourcentages qui délimitent les niveaux
+  (`intermediaire` et `avance`).
+
+## Espace formateur
+
+La page `formateur.html` (lien « Espace formateur » sur l'accueil) affiche
+les résultats des tests de positionnement : statistiques, tableau des
+stagiaires, détail par domaine, suppression, export **CSV** (pour Excel) et
+export/import **JSON**.
+
+- **Code d'accès** : défini dans `catalogue.json`, champ
+  `formateur.codeAcces` (par défaut `ATI2026`). C'est une protection
+  légère côté navigateur, pas une vraie authentification.
+- **Où sont stockés les résultats ?** Dans le navigateur de l'appareil où
+  le test a été passé (localStorage). L'espace formateur affiche donc les
+  tests passés sur **le même appareil**. Pour regrouper les résultats de
+  plusieurs postes : exportez le JSON sur chaque poste puis importez-les
+  sur celui du formateur.
+- **Copie Netlify** : chaque test envoyé est aussi transmis à
+  **Netlify Forms**. Dans le tableau de bord Netlify (site → Forms →
+  formulaire `positionnement`), vous retrouvez tous les résultats, quel
+  que soit l'appareil, et vous pouvez activer une notification par e-mail
+  à chaque nouveau test (Site settings → Forms → Form notifications).
 
 ## Changer les couleurs / le logo
 
