@@ -7,6 +7,7 @@ import ModuleView from '@/pages/ModuleView';
 import SectionView from '@/pages/SectionView';
 import PlacementPage from '@/pages/PlacementPage';
 import ProgressPage from '@/pages/ProgressPage';
+import FormateurSpace from '@/pages/FormateurSpace';
 
 type View =
   | { name: 'dashboard' }
@@ -15,19 +16,10 @@ type View =
   | { name: 'placement' }
   | { name: 'progress' };
 
-function AppContent() {
-  const { stagiaire, loading } = useAuth();
+type FormateurView = { name: 'overview' } | { name: 'results' };
+
+function StagiaireApp() {
   const [view, setView] = useState<View>({ name: 'dashboard' });
-
-  if (loading) {
-    return (
-      <div className="min-h-screen grid place-items-center bg-slate-50">
-        <div className="text-slate-400 text-sm">Chargement…</div>
-      </div>
-    );
-  }
-
-  if (!stagiaire) return <AuthPage />;
 
   const navigate = (v: string) => {
     if (v === 'dashboard') setView({ name: 'dashboard' });
@@ -69,6 +61,37 @@ function AppContent() {
       )}
     </AppShell>
   );
+}
+
+function FormateurApp() {
+  const [view, setView] = useState<FormateurView>({ name: 'overview' });
+
+  const navigate = (v: string) => {
+    if (v === 'overview') setView({ name: 'overview' });
+    else if (v === 'results') setView({ name: 'results' });
+  };
+
+  return (
+    <AppShell current={view.name} onNavigate={navigate}>
+      <FormateurSpace tab={view.name} />
+    </AppShell>
+  );
+}
+
+function AppContent() {
+  const { role, loading } = useAuth();
+
+  if (loading) {
+    return (
+      <div className="min-h-screen grid place-items-center bg-slate-50">
+        <div className="text-slate-400 text-sm">Chargement…</div>
+      </div>
+    );
+  }
+
+  if (role === 'formateur') return <FormateurApp />;
+  if (role === 'stagiaire') return <StagiaireApp />;
+  return <AuthPage />;
 }
 
 export default function App() {

@@ -6,6 +6,16 @@ export interface Stagiaire {
   created_at: string;
 }
 
+export interface Formateur {
+  id: string;
+  nom: string;
+  prenom: string;
+  code_formateur: string;
+  created_at: string;
+}
+
+export type Role = 'stagiaire' | 'formateur';
+
 export interface Module {
   id: string;
   titre: string;
